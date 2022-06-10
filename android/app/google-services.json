@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "989899377002",
+    "project_id": "desafioflutter-123",
+    "storage_bucket": "desafioflutter-123.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989899377002:android:b69e95cae002bab6d7bd13",
+        "android_client_info": {
+          "package_name": "com.example.desafio_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989899377002-e86dnrfli62ap5c47ln9fror44fv2r8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHjC1SIS3lZ9I_19MrFmyturX8BID4nKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989899377002-e86dnrfli62ap5c47ln9fror44fv2r8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
