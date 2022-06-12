@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class EventInfoScreen extends StatefulWidget {
-  const EventInfoScreen({Key? key}) : super(key: key);
+class SoftEventPlaceScreen extends StatefulWidget {
+  const SoftEventPlaceScreen({Key? key}) : super(key: key);
 
   @override
-  State<EventInfoScreen> createState() => _EventInfoScreenState();
+  State<SoftEventPlaceScreen> createState() => _SoftEventPlaceScreenState();
 }
 
-class _EventInfoScreenState extends State<EventInfoScreen> {
+class _SoftEventPlaceScreenState extends State<SoftEventPlaceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,22 +19,14 @@ class _EventInfoScreenState extends State<EventInfoScreen> {
             const Padding(
               padding: EdgeInsets.all(32),
               child: Center(
-                child: Text('TELA DE INFO DO EVENTO'),
+                child: Text('TELA DE LOCAL DO EVENTO'),
               ),
             ),
             Center(
               child: GestureDetector(
-                child: const Text('AVANÇAR (PARA LOCAL DO EVENTO)'),
+                child: const Text('VOLTAR (PARA INFO DO EVENTO)'),
                 onTap: () async {
-                  Navigator.popAndPushNamed(context, '/eventPlace');
-                },
-              ),
-            ),
-            Center(
-              child: GestureDetector(
-                child: const Text('VOLTAR (PARA EVENTOS)'),
-                onTap: () async {
-                  Navigator.popAndPushNamed(context, '/events');
+                  Navigator.popAndPushNamed(context, '/eventInfo');
                 },
               ),
             ),
