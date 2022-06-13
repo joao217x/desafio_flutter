@@ -1,6 +1,6 @@
-import 'package:desafio_flutter/helper/email_field_widget.dart';
-import 'package:desafio_flutter/helper/password_field_widget.dart';
+import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
+import 'package:desafio_flutter/shared/theme/mask.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,9 +47,13 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 56),
-                child: EmailFieldWidget(),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 56),
+                child: TxtFormFieldWidget(
+                  labelText: 'E-mail',
+                  keyboardType: TextInputType.emailAddress,
+                  mask: Mask.none,
+                ),
               ),
               Row(
                 children: [

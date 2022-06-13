@@ -1,33 +1,37 @@
 class CepModel {
   final String cep;
-  final String logradouro;
-  final String complemento;
-  final String localidade;
-  final String uf;
+  final String rua; //logradouro
+  final String numero; //complemento
+  final String bairro;
+  final String cidade; //localidade
+  final String uf; //
 
   CepModel({
     required this.cep,
-    required this.logradouro,
-    required this.complemento,
-    required this.localidade,
+    required this.rua,
+    required this.numero,
+    required this.bairro,
+    required this.cidade,
     required this.uf,
   });
 
   factory CepModel.fromJson(Map<String, dynamic> json) {
     return CepModel(
       cep: json['cep'],
-      logradouro: json['logradouro'],
-      complemento: json['complemento'],
-      localidade: json['localidade'],
+      rua: json['logradouro'],
+      numero: json['complemento'],
+      bairro: json['bairro'],
+      cidade: json['localidade'],
       uf: json['uf'],
     );
   }
 
   Map<String, dynamic> toJson() => {
         'cep': cep,
-        'logradouro': logradouro,
-        'complemento': complemento,
-        'localidade': localidade,
+        'logradouro': rua,
+        'complemento': numero,
+        'bairro': bairro,
+        'localidade': cidade,
         'uf': uf,
       };
 }

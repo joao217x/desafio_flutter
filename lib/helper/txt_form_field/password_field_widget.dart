@@ -8,7 +8,7 @@ class PasswordFieldWidget extends StatefulWidget {
 }
 
 class _PasswordFieldWidgetState extends State<PasswordFieldWidget> {
-  bool isHidden = false;
+  bool isHidden = true;
 
   void togglePasswordVisibility() {
     setState(() {

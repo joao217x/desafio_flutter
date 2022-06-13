@@ -1,9 +1,7 @@
-
 import 'package:desafio_flutter/view/events/event_list_screen.dart';
-import 'package:desafio_flutter/view/events/kind/my_events/successful/my_event_info_screen.dart';
-import 'package:desafio_flutter/view/events/kind/my_events/successful/my_event_place_screen.dart';
-import 'package:desafio_flutter/view/events/kind/soft_events/successful/soft_event_info_screen.dart';
-import 'package:desafio_flutter/view/events/kind/soft_events/successful/soft_event_place_screen.dart';
+import 'package:desafio_flutter/view/events/type/my_events/successful/my_event_info_screen.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_info_screen.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_place_screen.dart';
 import 'package:desafio_flutter/view/events/new_event_screen.dart';
 import 'package:desafio_flutter/view/login/forget_password_screen.dart';
 import 'package:desafio_flutter/view/login/login_screen.dart';
@@ -26,10 +24,9 @@ class MyApp extends StatelessWidget {
         '/forget': (context) => const ForgetPasswordScreen(),
         '/newEvent': (context) => const NewEventScreen(),
         '/events': (context) => const EventListScreen(),
-        '/MyEventInfo': (context) => const MyEventInfoScreen(),
-        '/SoftEventInfo': (context) => const SoftEventInfoScreen(),
-        '/MyEventPlace': (context) => const MyEventPlaceScreen(),
-        '/SoftEventPlace': (context) => const SoftEventPlaceScreen(),
+        '/myEventInfo': (context) => const MyEventInfoScreen(),
+        '/softEventInfo': (context) => const SoftEventInfoScreen(),
+        '/softEventPlace': (context) => const SoftEventPlaceScreen(),
       },
     );
   }

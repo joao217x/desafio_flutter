@@ -1,4 +1,3 @@
-import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -29,19 +28,6 @@ class _EventNonRegisteredState extends State<EventNonRegistered> {
           ),
         ],
       ),
-      floatingActionButton: SizedBox(
-        height: 38,
-        width: 265,
-        child: FloatingActionButton.extended(
-          backgroundColor: AppColor.newBrandingPurple500,
-          label: const Text(
-            'Criar novo evento',
-            style: TextStyle(fontWeight: FontWeight.w600),
-          ),
-          onPressed: () {},
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

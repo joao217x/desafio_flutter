@@ -5,12 +5,13 @@ class EventModel {
   final String endTime;
   final String address;
 
-  EventModel(
-      {required this.name,
-      required this.description,
-      required this.startTime,
-      required this.endTime,
-      required this.address});
+  EventModel({
+    required this.name,
+    required this.description,
+    required this.startTime,
+    required this.endTime,
+    required this.address,
+  });
 
   factory EventModel.fromJson(Map<String, dynamic> json) {
     return EventModel(
