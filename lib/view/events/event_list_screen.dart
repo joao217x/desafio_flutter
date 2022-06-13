@@ -4,6 +4,7 @@ import 'package:desafio_flutter/helper/tab_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/view/events/type/my_events/error/event_non_created.dart';
 import 'package:desafio_flutter/view/events/type/soft_events/error/event_load_error.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_list.dart';
 import 'package:flutter/material.dart';
 
 class EventListScreen extends StatefulWidget {
@@ -32,7 +33,8 @@ class _EventListScreenState extends State<EventListScreen> {
               child: TabBarView(
                 children: [
                   // SOFT EVENTOS
-                  EventLoadError(),
+                  // EventLoadError(),
+                  SoftEventList(),
                   // MEUS EVENTOS
                   EventNonCreated()
                 ],

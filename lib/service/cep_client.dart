@@ -1,11 +1,11 @@
 import 'dart:developer';
-import 'package:desafio_flutter/model/cep_model.dart';
+import 'package:desafio_flutter/model/cep/cep_model.dart';
 import 'package:dio/dio.dart';
 
 class CepClient {
   final client = Dio();
 
-  Future<CepModel> cepEvento(String cep) async {
+  Future<CepModel> getCepEvento(String cep) async {
     try {
       final response = await client.get('https://viacep.com.br/ws/$cep/json/');
       inspect(response.data);
