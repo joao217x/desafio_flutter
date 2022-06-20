@@ -1,7 +1,7 @@
 import 'package:desafio_flutter/helper/appbar_widget.dart';
 import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
-import 'package:desafio_flutter/shared/theme/mask.dart';
+import 'package:desafio_flutter/shared/util/mask.dart';
 import 'package:flutter/material.dart';
 
 class NewEventScreen extends StatefulWidget {
@@ -35,20 +35,18 @@ class _NewEventScreenState extends State<NewEventScreen> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
                 child: TxtFormFieldWidget(
                   labelText: 'Nome do evento',
                   keyboardType: TextInputType.text,
-                  mask: Mask.none,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
                 child: TxtFormFieldWidget(
                   labelText: 'Descrição do evento',
                   keyboardType: TextInputType.text,
-                  mask: Mask.none,
                 ),
               ),
               Padding(
@@ -99,23 +97,21 @@ class _NewEventScreenState extends State<NewEventScreen> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
                 child: TxtFormFieldWidget(
                   labelText: 'CEP',
                   keyboardType: TextInputType.number,
-                  mask: Mask.none,
                 ),
               ),
               Row(
-                children: [
+                children: const [
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(right: 16),
+                      padding: EdgeInsets.only(right: 16),
                       child: TxtFormFieldWidget(
                         labelText: 'Rua',
                         keyboardType: TextInputType.text,
-                        mask: Mask.none,
                       ),
                     ),
                   ),
@@ -125,26 +121,23 @@ class _NewEventScreenState extends State<NewEventScreen> {
                       child: TxtFormFieldWidget(
                         labelText: 'Número',
                         keyboardType: TextInputType.number,
-                        mask: Mask.none,
                       ),
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
                 child: TxtFormFieldWidget(
                   labelText: 'Bairro',
                   keyboardType: TextInputType.text,
-                  mask: Mask.none,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
                 child: TxtFormFieldWidget(
                   labelText: 'Cidade',
                   keyboardType: TextInputType.text,
-                  mask: Mask.none,
                 ),
               ),
             ],

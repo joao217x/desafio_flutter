@@ -1,41 +1,36 @@
-// import 'package:desafio_flutter/model/event/event_model.dart';
-// import 'package:desafio_flutter/service/agenda_client.dart';
-// import 'package:desafio_flutter/service/cep_client.dart';
 import 'package:mobx/mobx.dart';
 part 'controller.g.dart';
 
+// ignore: library_private_types_in_public_api
 class Controller = _ControllerBase with _$Controller;
 
 abstract class _ControllerBase with Store {
-  // final AgendaClient agendaClient = AgendaClient();
-  // final CepClient cepClient = CepClient();
-  // List<EventModel> eventList = [];
+  //SPLASH SCREEN
 
-  // @observable
-  // bool isLoading = false;
+  //LOGIN SCREEN
 
-  // @action
-  // void setLoading(bool value) {
-  //   isLoading = value;
-  // }
+  //FORGET PASSWORD SCREEN
 
-  // LISTA DE EVENTOS
-  // @action
-  // Future<void> initialLoad() async {
-  //   eventList = await AgendaClient().getListaEventos();
-  // }
+  //NEW EVENT SCREEN
 
-  // @action
-  // Future<void> eventController() async {
-  //   try {
-  //     setLoading(true);
-  //     final result = await agendaClient.getListaEventos();
-  //     setLoading(false);
-  //     // return result;
-  //   } catch (e) {
-  //     setLoading(false);
-  //     throw e;
-  //   }
-  // }
+  //EVENT LIST SCREEN
 
+  //SOFT EVENT LIST SCREEN
+
+  //SOFT EVENT INFO SCREEN
+
+  //SOFT EVENT PLACE SCREEN
+
+  //MY EVENT LIST SCREEN
+
+  //MY EVENT INFO SCREEN
+
+  //PASSWORD FIELD WIDGET
+  @observable
+  bool isHidden = true;
+
+  @action
+  void togglePasswordVisibility() {
+    isHidden = !isHidden;
+  }
 }

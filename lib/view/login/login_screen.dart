@@ -1,7 +1,6 @@
 import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
 import 'package:desafio_flutter/helper/txt_form_field/password_field_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
-import 'package:desafio_flutter/shared/theme/mask.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,12 +37,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 24),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 24),
                 child: TxtFormFieldWidget(
                   labelText: 'E-mail',
                   keyboardType: TextInputType.emailAddress,
-                  mask: Mask.none,
                 ),
               ),
               const Padding(
