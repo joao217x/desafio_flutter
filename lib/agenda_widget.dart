@@ -5,6 +5,7 @@ import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_eve
 import 'package:desafio_flutter/view/events/new_event_screen.dart';
 import 'package:desafio_flutter/view/login/forget_password_screen.dart';
 import 'package:desafio_flutter/view/login/login_screen.dart';
+import 'package:desafio_flutter/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,8 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
       ),
-      initialRoute: '/login',
+      initialRoute: '/splash',
       routes: {
+        '/splash':(context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/forget': (context) => const ForgetPasswordScreen(),
         '/newEvent': (context) => const NewEventScreen(),

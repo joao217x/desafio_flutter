@@ -3,7 +3,9 @@ import 'package:desafio_flutter/helper/appbar_widget.dart';
 import 'package:desafio_flutter/helper/tab_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/view/events/type/my_events/error/event_non_created.dart';
+import 'package:desafio_flutter/view/events/type/my_events/successful/my_event_list.dart';
 import 'package:desafio_flutter/view/events/type/soft_events/error/event_load_error.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/error/event_non_registered.dart';
 import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_list.dart';
 import 'package:flutter/material.dart';
 
@@ -32,11 +34,14 @@ class _EventListScreenState extends State<EventListScreen> {
             Expanded(
               child: TabBarView(
                 children: [
-                  // SOFT EVENTOS
-                  // EventLoadError(),
-                  SoftEventList(),
-                  // MEUS EVENTOS
-                  EventNonCreated()
+                  // ##### SOFT EVENTOS #####
+                  // SoftEventList(), // -> lista de eventos
+                  // EventLoadError(), // -> erro no loading dos eventos
+                  EventNonRegistered(), // - > nenhum evento cadastrado
+
+                  // ##### MEUS EVENTOS #####
+                  // MyEventList(), // -> lista de eventos
+                  EventNonCreated() // -> nenhum evento criado
                 ],
               ),
             ),
