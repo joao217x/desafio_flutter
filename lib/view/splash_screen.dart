@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
     //           :
     // );
     return Scaffold(
-      backgroundColor: AppColor.newBrandingPurple500,
+      backgroundColor: AppColor.purple,
       body: Center(
         child: SvgPicture.asset('assets/splash.svg'),
       ),

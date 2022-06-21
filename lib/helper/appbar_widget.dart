@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
       ),
       centerTitle: true,
-      backgroundColor: AppColor.newBrandingPurple500,
+      backgroundColor: AppColor.purple,
       toolbarHeight: 60,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -53,7 +53,7 @@ class CustomAppBarNavigator extends StatelessWidget
         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
       ),
       centerTitle: true,
-      backgroundColor: AppColor.newBrandingPurple500,
+      backgroundColor: AppColor.purple,
       toolbarHeight: 60,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

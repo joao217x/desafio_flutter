@@ -51,7 +51,7 @@ class _EventListScreenState extends State<EventListScreen> {
           height: 38,
           width: 265,
           child: FloatingActionButton.extended(
-            backgroundColor: AppColor.newBrandingPurple500,
+            backgroundColor: AppColor.purple,
             label: const Text(
               'Criar novo evento',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),

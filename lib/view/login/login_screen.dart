@@ -1,3 +1,5 @@
+import 'package:desafio_flutter/controller/controller.dart';
+import 'package:desafio_flutter/helper/elevated_button_widget.dart';
 import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
 import 'package:desafio_flutter/helper/txt_form_field/password_field_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
@@ -13,6 +15,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final Controller controller = Controller();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.w700,
                     fontSize: 24,
-                    color: AppColor.newBrandingPurple500,
+                    color: AppColor.purple,
                   ),
                 ),
               ),
@@ -59,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: GoogleFonts.montserrat(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
-                          color: AppColor.newBrandingPurple500,
+                          color: AppColor.purple,
                         ),
                       ),
                       onTap: () async {
@@ -72,18 +76,11 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: ElevatedButton(
+                    child: CustomElevatedButton(
+                      text: 'Entrar',
                       onPressed: () {
                         Navigator.popAndPushNamed(context, '/events');
                       },
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: const Size.fromHeight(38),
-                        primary: AppColor.newBrandingPurple500,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(45),
-                        ),
-                      ),
-                      child: const Text('Entrar'),
                     ),
                   ),
                 ],

@@ -1,3 +1,5 @@
+import 'package:desafio_flutter/helper/snackbar_widget.dart';
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'controller.g.dart';
 

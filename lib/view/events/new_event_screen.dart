@@ -1,4 +1,6 @@
 import 'package:desafio_flutter/helper/appbar_widget.dart';
+import 'package:desafio_flutter/helper/elevated_button_widget.dart';
+import 'package:desafio_flutter/helper/snackbar_widget.dart';
 import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/shared/util/mask.dart';
@@ -17,7 +19,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
     return Scaffold(
       appBar: CustomAppBarNavigator(
         title: 'Adicionar evento',
-        onPressed: () async {
+        onPressed: () {
           Navigator.popAndPushNamed(context, '/events');
         },
       ),
@@ -97,18 +99,34 @@ class _NewEventScreenState extends State<NewEventScreen> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 8),
-                child: TxtFormFieldWidget(
-                  labelText: 'CEP',
-                  keyboardType: TextInputType.number,
-                ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 15),
+                      child: TxtFormFieldWidget(
+                        labelText: 'CEP',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColor.purple,
+                    ),
+                    onPressed: () {
+                      // SnackbarCep.error.show(context);
+                    },
+                    child: const Icon(Icons.search),
+                  ),
+                ],
               ),
               Row(
                 children: const [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(right: 16),
+                      padding: EdgeInsets.only(right: 22),
                       child: TxtFormFieldWidget(
                         labelText: 'Rua',
                         keyboardType: TextInputType.text,
@@ -134,29 +152,47 @@ class _NewEventScreenState extends State<NewEventScreen> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(bottom: 8),
+                padding: EdgeInsets.only(bottom: 25),
                 child: TxtFormFieldWidget(
                   labelText: 'Cidade',
                   keyboardType: TextInputType.text,
                 ),
               ),
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomElevatedButton(
+                      text: 'Adicionar evento',
+                      onPressed: () {
+                        Navigator.popAndPushNamed(context, '/events');
+                        // SnackbarAddEvent.success.show(context);
+                        // SnackbarAddEvent.error.show(context);
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
       ),
-      floatingActionButton: SizedBox(
-        height: 38,
-        width: 265,
-        child: FloatingActionButton.extended(
-          backgroundColor: AppColor.newBrandingPurple500,
-          label: const Text(
-            'Adicionar evento',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-          ),
-          onPressed: () {},
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: SizedBox(
+      //   height: 38,
+      //   width: 265,
+      //   child: FloatingActionButton.extended(
+      //     backgroundColor: AppColor.purple,
+      //     label: const Text(
+      //       'Adicionar evento',
+      //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+      //     ),
+      //     onPressed: () {
+      // Navigator.popAndPushNamed(context, '/events');
+      // SnackbarAddEvent.success.show(context);
+      // SnackbarAddEvent.error.show(context);
+      //     },
+      //   ),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

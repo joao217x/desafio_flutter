@@ -8,7 +8,7 @@ class CustomTabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TabBar(
-      indicatorColor: AppColor.newBrandingPurple500,
+      indicatorColor: AppColor.purple,
       indicatorSize: TabBarIndicatorSize.label,
       labelColor: Colors.black,
       unselectedLabelColor: Colors.grey,

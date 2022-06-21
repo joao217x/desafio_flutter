@@ -1,3 +1,5 @@
+import 'package:desafio_flutter/helper/elevated_button_widget.dart';
+import 'package:desafio_flutter/helper/snackbar_widget.dart';
 import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.w700,
                     fontSize: 24,
-                    color: AppColor.newBrandingPurple500,
+                    color: AppColor.purple,
                   ),
                 ),
               ),
@@ -56,18 +58,13 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: ElevatedButton(
+                    child: CustomElevatedButton(
+                      text: 'Enviar',
                       onPressed: () {
                         Navigator.popAndPushNamed(context, '/events');
+                        // SnackbarForgetPassword.success.show(context);
+                        // SnackbarForgetPassword.error.show(context);
                       },
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: const Size.fromHeight(38),
-                        primary: AppColor.newBrandingPurple500,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(45),
-                        ),
-                      ),
-                      child: const Text('Enviar'),
                     ),
                   ),
                 ],
