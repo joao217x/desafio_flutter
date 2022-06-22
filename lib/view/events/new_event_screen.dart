@@ -1,3 +1,4 @@
+import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/helper/appbar_widget.dart';
 import 'package:desafio_flutter/helper/elevated_button_widget.dart';
 import 'package:desafio_flutter/helper/snackbar_widget.dart';
@@ -5,6 +6,7 @@ import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/shared/util/mask.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class NewEventScreen extends StatefulWidget {
   const NewEventScreen({Key? key}) : super(key: key);
@@ -14,6 +16,8 @@ class NewEventScreen extends StatefulWidget {
 }
 
 class _NewEventScreenState extends State<NewEventScreen> {
+  Controller controller = Controller();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,18 +41,24 @@ class _NewEventScreenState extends State<NewEventScreen> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 8),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
                 child: TxtFormFieldWidget(
                   labelText: 'Nome do evento',
                   keyboardType: TextInputType.text,
+                  onChanged: (String value) {
+                    controller.eventName = value;
+                  },
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 8),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
                 child: TxtFormFieldWidget(
                   labelText: 'Descrição do evento',
                   keyboardType: TextInputType.text,
+                  onChanged: (String value) {
+                    controller.eventDesc = value;
+                  },
                 ),
               ),
               Padding(
@@ -63,6 +73,9 @@ class _NewEventScreenState extends State<NewEventScreen> {
                           keyboardType: TextInputType.datetime,
                           hintText: '  /  /  ',
                           mask: Mask.date,
+                          onChanged: (String value) {
+                            controller.date = value;
+                          },
                         ),
                       ),
                     ),
@@ -74,6 +87,9 @@ class _NewEventScreenState extends State<NewEventScreen> {
                           keyboardType: TextInputType.datetime,
                           hintText: '00:00',
                           mask: Mask.time,
+                          onChanged: (String value) {
+                            controller.timeStart = value;
+                          },
                         ),
                       ),
                     ),
@@ -85,6 +101,9 @@ class _NewEventScreenState extends State<NewEventScreen> {
                           keyboardType: TextInputType.datetime,
                           hintText: '00:00',
                           mask: Mask.time,
+                          onChanged: (String value) {
+                            controller.timeEnd = value;
+                          },
                         ),
                       ),
                     ),
@@ -102,34 +121,45 @@ class _NewEventScreenState extends State<NewEventScreen> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(right: 15),
+                      padding: const EdgeInsets.only(right: 15),
                       child: TxtFormFieldWidget(
                         labelText: 'CEP',
                         keyboardType: TextInputType.number,
+                        mask: Mask.cep,
+                        onChanged: (String value) {
+                          controller.cep = value;
+                        },
                       ),
                     ),
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: AppColor.purple,
-                    ),
-                    onPressed: () {
-                      // SnackbarCep.error.show(context);
-                    },
-                    child: const Icon(Icons.search),
-                  ),
+                  Observer(builder: (_) {
+                    return ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: AppColor.purple,
+                      ),
+                      onPressed: controller.cep.length != 8
+                          ? null
+                          : () {
+                              // SnackbarCep.error.show(context);
+                            },
+                      child: const Icon(Icons.search),
+                    );
+                  }),
                 ],
               ),
               Row(
-                children: const [
+                children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(right: 22),
+                      padding: const EdgeInsets.only(right: 22),
                       child: TxtFormFieldWidget(
                         labelText: 'Rua',
                         keyboardType: TextInputType.text,
+                        onChanged: (String value) {
+                          controller.street = value;
+                        },
                       ),
                     ),
                   ),
@@ -139,23 +169,32 @@ class _NewEventScreenState extends State<NewEventScreen> {
                       child: TxtFormFieldWidget(
                         labelText: 'Número',
                         keyboardType: TextInputType.number,
+                        onChanged: (String value) {
+                          controller.number = value;
+                        },
                       ),
                     ),
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 8),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
                 child: TxtFormFieldWidget(
                   labelText: 'Bairro',
                   keyboardType: TextInputType.text,
+                  onChanged: (String value) {
+                    controller.neighbourhood = value;
+                  },
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 25),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 25),
                 child: TxtFormFieldWidget(
                   labelText: 'Cidade',
                   keyboardType: TextInputType.text,
+                  onChanged: (String value) {
+                    controller.city = value;
+                  },
                 ),
               ),
               Row(

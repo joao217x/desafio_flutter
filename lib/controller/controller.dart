@@ -1,5 +1,3 @@
-import 'package:desafio_flutter/helper/snackbar_widget.dart';
-import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'controller.g.dart';
 
@@ -9,24 +7,64 @@ class Controller = _ControllerBase with _$Controller;
 abstract class _ControllerBase with Store {
   //SPLASH SCREEN
 
-  //LOGIN SCREEN
+  //#############################################
+  //LOGIN AND FORGET PASSWORD SCREEN
+  @observable
+  String user = '';
 
-  //FORGET PASSWORD SCREEN
+  @observable
+  String password = '';
 
+  //#############################################
   //NEW EVENT SCREEN
+  @observable
+  String eventName = '';
 
+  @observable
+  String eventDesc = '';
+
+  @observable
+  String date = '';
+
+  @observable
+  String timeStart = '';
+
+  @observable
+  String timeEnd = '';
+
+  @observable
+  String cep = '';
+
+  @observable
+  String street = '';
+
+  @observable
+  String number = '';
+
+  @observable
+  String neighbourhood = '';
+
+  @observable
+  String city = '';
+  //#############################################
   //EVENT LIST SCREEN
 
+  //#############################################
   //SOFT EVENT LIST SCREEN
 
+  //#############################################
   //SOFT EVENT INFO SCREEN
 
+  //#############################################
   //SOFT EVENT PLACE SCREEN
 
+  //#############################################
   //MY EVENT LIST SCREEN
 
+  //#############################################
   //MY EVENT INFO SCREEN
 
+  //#############################################
   //PASSWORD FIELD WIDGET
   @observable
   bool isHidden = true;

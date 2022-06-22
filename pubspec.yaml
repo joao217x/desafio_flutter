@@ -28,6 +28,7 @@ dependencies:
 
   #MAPS
   google_maps_flutter: ^2.1.7
+  geolocator: ^8.2.1
 
   #UX/UI
   flutter_svg: ^1.1.0

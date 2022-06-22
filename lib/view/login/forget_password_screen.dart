@@ -1,3 +1,4 @@
+import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/helper/elevated_button_widget.dart';
 import 'package:desafio_flutter/helper/snackbar_widget.dart';
 import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
@@ -14,6 +15,8 @@ class ForgetPasswordScreen extends StatefulWidget {
 }
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+  Controller controller = Controller();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,11 +51,14 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 56),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 56),
                 child: TxtFormFieldWidget(
                   labelText: 'E-mail',
                   keyboardType: TextInputType.emailAddress,
+                  onChanged: (String value) {
+                    controller.user = value;
+                  },
                 ),
               ),
               Row(

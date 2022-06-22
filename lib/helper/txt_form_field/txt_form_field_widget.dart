@@ -4,6 +4,7 @@ import 'package:mask_input_formatter/mask_input_formatter.dart';
 class TxtFormFieldWidget extends StatelessWidget {
   final String labelText;
   final TextInputType keyboardType;
+  final Function(String) onChanged;
   final MaskInputFormatter? mask;
   final String? hintText;
 
@@ -11,6 +12,7 @@ class TxtFormFieldWidget extends StatelessWidget {
     Key? key,
     required this.labelText,
     required this.keyboardType,
+    required this.onChanged,
     this.mask,
     this.hintText,
   }) : super(key: key);
@@ -21,13 +23,14 @@ class TxtFormFieldWidget extends StatelessWidget {
       inputFormatters: mask != null ? [mask!] : null,
       keyboardType: keyboardType,
       decoration: InputDecoration(
-        hintText: hintText,
         labelText: labelText,
         labelStyle: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w400,
         ),
+        hintText: hintText,
       ),
+      onChanged: onChanged,
     );
   }
 }

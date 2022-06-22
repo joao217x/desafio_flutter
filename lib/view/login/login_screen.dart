@@ -41,16 +41,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 24),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 24),
                 child: TxtFormFieldWidget(
                   labelText: 'E-mail',
                   keyboardType: TextInputType.emailAddress,
+                  onChanged: (String value) {
+                    controller.user = value;
+                  },
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 16),
-                child: PasswordFieldWidget(),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: PasswordFieldWidget(
+                  onChanged: (String value) {
+                    controller.password = value;
+                  },
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 24),
