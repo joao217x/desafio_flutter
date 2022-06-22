@@ -1,3 +1,4 @@
+import 'package:desafio_flutter/service/firebase_client.dart';
 import 'package:mobx/mobx.dart';
 part 'controller.g.dart';
 
@@ -9,11 +10,28 @@ abstract class _ControllerBase with Store {
 
   //#############################################
   //LOGIN AND FORGET PASSWORD SCREEN
+  FirebaseClient firebaseClient = FirebaseClient();
+
   @observable
   String user = '';
 
   @observable
   String password = '';
+
+  @action
+  Future<void> logInUser({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      await firebaseClient.logInFirebase(
+        email: email,
+        password: password,
+      );
+    } catch (e) {
+      throw e;
+    }
+  }
 
   //#############################################
   //NEW EVENT SCREEN

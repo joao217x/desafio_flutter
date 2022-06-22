@@ -8,6 +8,7 @@ import 'package:desafio_flutter/view/events/type/soft_events/error/event_load_er
 import 'package:desafio_flutter/view/events/type/soft_events/error/event_non_registered.dart';
 import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class EventListScreen extends StatefulWidget {
   const EventListScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class EventListScreen extends StatefulWidget {
 }
 
 class _EventListScreenState extends State<EventListScreen> {
-  final Controller _controller = Controller();
+  final Controller mobxController = Controller();
 
   @override
   Widget build(BuildContext context) {
@@ -25,28 +26,30 @@ class _EventListScreenState extends State<EventListScreen> {
       length: 2,
       child: Scaffold(
         appBar: const CustomAppBar(),
-        body: Column(
-          children: const [
-            SizedBox(
-              height: 55,
-              child: CustomTabWidget(),
-            ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  // ##### SOFT EVENTOS #####
-                  // SoftEventList(), // -> lista de eventos
-                  // EventLoadError(), // -> erro no loading dos eventos
-                  EventNonRegistered(), // - > nenhum evento cadastrado
-
-                  // ##### MEUS EVENTOS #####
-                  // MyEventList(), // -> lista de eventos
-                  EventNonCreated() // -> nenhum evento criado
-                ],
+        body: Observer(builder: (_) {
+          return Column(
+            children: const [
+              SizedBox(
+                height: 55,
+                child: CustomTabWidget(),
               ),
-            ),
-          ],
-        ),
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    // ##### SOFT EVENTOS #####
+                    // SoftEventList(), // -> lista de eventos
+                    // EventLoadError(), // -> erro no loading dos eventos
+                    EventNonRegistered(), // - > nenhum evento cadastrado
+
+                    // ##### MEUS EVENTOS #####
+                    // MyEventList(), // -> lista de eventos
+                    EventNonCreated() // -> nenhum evento criado
+                  ],
+                ),
+              ),
+            ],
+          );
+        }),
         floatingActionButton: SizedBox(
           height: 38,
           width: 265,

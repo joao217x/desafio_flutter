@@ -15,7 +15,7 @@ class PasswordFieldWidget extends StatefulWidget {
 }
 
 class _PasswordFieldWidgetState extends State<PasswordFieldWidget> {
-  Function(String)? onChanged;
+  // final Function(String)? onChanged = onChanged;
 
   Controller controller = Controller();
 
@@ -34,7 +34,6 @@ class _PasswordFieldWidgetState extends State<PasswordFieldWidget> {
                 : const Icon(Icons.visibility),
           ),
         ),
-        onChanged: onChanged,
       );
     });
   }
