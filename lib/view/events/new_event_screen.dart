@@ -2,7 +2,7 @@ import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/helper/appbar_widget.dart';
 import 'package:desafio_flutter/helper/elevated_button_widget.dart';
 import 'package:desafio_flutter/helper/snackbar_widget.dart';
-import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
+import 'package:desafio_flutter/helper/txt_form_field_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/shared/util/mask.dart';
 import 'package:flutter/material.dart';
@@ -142,7 +142,9 @@ class _NewEventScreenState extends State<NewEventScreen> {
                       onPressed: controller.cep.length != 8
                           ? null
                           : () {
+                              // ERRO
                               // SnackbarCep.error.show(context);
+                              // SUCESSO
                             },
                       child: const Icon(Icons.search),
                     )
@@ -202,9 +204,11 @@ class _NewEventScreenState extends State<NewEventScreen> {
                       child: CustomElevatedButton(
                         text: 'Adicionar evento',
                         onPressed: () {
-                          Navigator.popAndPushNamed(context, '/events');
-                          // SnackbarAddEvent.success.show(context);
+                          // ERRO
                           // SnackbarAddEvent.error.show(context);
+                          // SUCESSO
+                          // SnackbarAddEvent.success.show(context);                          
+                          // Navigator.popAndPushNamed(context, '/events');
                         },
                       ),
                     ),

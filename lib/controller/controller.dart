@@ -1,4 +1,5 @@
 import 'package:desafio_flutter/service/firebase_client.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobx/mobx.dart';
 part 'controller.g.dart';
 
@@ -11,6 +12,7 @@ abstract class _ControllerBase with Store {
   //#############################################
   //LOGIN AND FORGET PASSWORD SCREEN
   FirebaseClient firebaseClient = FirebaseClient();
+  final instance = FirebaseAuth.instance;
 
   @observable
   String user = '';

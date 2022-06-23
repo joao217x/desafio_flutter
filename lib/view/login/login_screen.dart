@@ -1,7 +1,6 @@
 import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/helper/elevated_button_widget.dart';
-import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
-import 'package:desafio_flutter/helper/txt_form_field/password_field_widget.dart';
+import 'package:desafio_flutter/helper/txt_form_field_widget.dart';
 import 'package:desafio_flutter/service/firebase_client.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
@@ -57,9 +56,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 16),
-                  child: TxtFormFieldWidget(
-                    labelText: 'Senha',
-                    keyboardType: TextInputType.text,
+                  child: TextFormField(
+                    obscureText: controller.isHidden,
+                    keyboardType: TextInputType.visiblePassword,
+                    decoration: InputDecoration(
+                      labelText: 'Senha',
+                      suffixIcon: IconButton(
+                        onPressed: controller.togglePasswordVisibility,
+                        icon: controller.isHidden
+                            ? const Icon(Icons.visibility_off)
+                            : const Icon(Icons.visibility),
+                      ),
+                    ),
                     onChanged: (String value) {
                       controller.password = value;
                     },

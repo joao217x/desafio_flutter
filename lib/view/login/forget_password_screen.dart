@@ -1,7 +1,7 @@
 import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/helper/elevated_button_widget.dart';
 import 'package:desafio_flutter/helper/snackbar_widget.dart';
-import 'package:desafio_flutter/helper/txt_form_field/txt_form_field_widget.dart';
+import 'package:desafio_flutter/helper/txt_form_field_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -69,9 +69,11 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       child: CustomElevatedButton(
                         text: 'Enviar',
                         onPressed: () {
-                          Navigator.popAndPushNamed(context, '/events');
-                          // SnackbarForgetPassword.success.show(context);
+                          // ERRO
                           // SnackbarForgetPassword.error.show(context);
+                          // SUCESSO
+                          // SnackbarForgetPassword.success.show(context);
+                          // Navigator.popAndPushNamed(context, '/login');
                         },
                       ),
                     ),

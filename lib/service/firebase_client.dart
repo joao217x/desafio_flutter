@@ -8,12 +8,10 @@ class FirebaseClient {
     required String password,
   }) async {
     try {
-      final result = await instance.signInWithEmailAndPassword(
+      return await instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-
-      return result;
     } on FirebaseAuthException catch (e) {
       throw e;
     }
