@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             password: controller.password,
                           );
                           if (result.runtimeType == UserCredential) {
-                            Navigator.popAndPushNamed(context, '/events');
+                            Navigator.popAndPushNamed(context, '/allEvents');
                           }
                         },
                       ),

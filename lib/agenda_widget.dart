@@ -1,8 +1,6 @@
 import 'package:desafio_flutter/view/events/all_event_list_screen.dart';
 import 'package:desafio_flutter/view/events/type/my_events/successful/my_event_info_screen.dart';
-import 'package:desafio_flutter/view/events/type/my_events/successful/my_event_list_tab_screen.dart';
 import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_info_screen.dart';
-import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_list_tab_screen.dart';
 import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_place_screen.dart';
 import 'package:desafio_flutter/view/events/new_event_screen.dart';
 import 'package:desafio_flutter/view/login/forget_password_screen.dart';
