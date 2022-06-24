@@ -3,14 +3,14 @@ import 'package:desafio_flutter/model/event/event_model.dart';
 import 'package:desafio_flutter/service/agenda_client.dart';
 import 'package:flutter/material.dart';
 
-class SoftEventList extends StatefulWidget {
-  const SoftEventList({Key? key}) : super(key: key);
+class SoftEventListScreen extends StatefulWidget {
+  const SoftEventListScreen({Key? key}) : super(key: key);
 
   @override
-  State<SoftEventList> createState() => _SoftEventListState();
+  State<SoftEventListScreen> createState() => _SoftEventListScreenState();
 }
 
-class _SoftEventListState extends State<SoftEventList> {
+class _SoftEventListScreenState extends State<SoftEventListScreen> {
   List<EventModel> eventList = [];
 
   @override

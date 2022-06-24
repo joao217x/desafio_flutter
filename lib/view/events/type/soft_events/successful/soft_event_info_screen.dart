@@ -1,3 +1,4 @@
+import 'package:desafio_flutter/helper/appbar_widget.dart';
 import 'package:flutter/material.dart';
 
 class SoftEventInfoScreen extends StatefulWidget {
@@ -11,6 +12,12 @@ class _SoftEventInfoScreenState extends State<SoftEventInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBarNavigator(
+        title: 'Detalhes do evento',
+        onPressed: () {
+          Navigator.popAndPushNamed(context, '/allEvents');
+        },
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

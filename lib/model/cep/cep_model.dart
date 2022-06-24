@@ -4,7 +4,7 @@ class CepModel {
   final String numero; //complemento
   final String bairro;
   final String cidade; //localidade
-  final String uf; //
+  final String uf;
 
   CepModel({
     required this.cep,

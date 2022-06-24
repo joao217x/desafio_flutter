@@ -2,22 +2,23 @@ import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/helper/appbar_widget.dart';
 import 'package:desafio_flutter/helper/tab_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
-import 'package:desafio_flutter/view/events/type/my_events/error/event_non_created.dart';
-import 'package:desafio_flutter/view/events/type/my_events/successful/my_event_list.dart';
-import 'package:desafio_flutter/view/events/type/soft_events/error/event_load_error.dart';
-import 'package:desafio_flutter/view/events/type/soft_events/error/event_non_registered.dart';
-import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_list.dart';
+import 'package:desafio_flutter/view/events/type/my_events/error/event_non_created_tab_screen.dart';
+import 'package:desafio_flutter/view/events/type/my_events/successful/my_event_list_tab_screen.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/error/event_load_error_tab_screen.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/error/event_non_registered_tab_screen.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_info_screen.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/successful/soft_event_list_tab_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class EventListScreen extends StatefulWidget {
-  const EventListScreen({Key? key}) : super(key: key);
+class AllEventListScreen extends StatefulWidget {
+  const AllEventListScreen({Key? key}) : super(key: key);
 
   @override
-  State<EventListScreen> createState() => _EventListScreenState();
+  State<AllEventListScreen> createState() => _AllEventListScreenState();
 }
 
-class _EventListScreenState extends State<EventListScreen> {
+class _AllEventListScreenState extends State<AllEventListScreen> {
   final Controller mobxController = Controller();
 
   @override
