@@ -10,6 +10,7 @@ abstract class _ControllerBase with Store {
   //SPLASH SCREEN
 
   //#############################################
+
   //LOGIN AND FORGET PASSWORD SCREEN
   FirebaseClient firebaseClient = FirebaseClient();
   final instance = FirebaseAuth.instance;
@@ -37,8 +38,8 @@ abstract class _ControllerBase with Store {
       throw e;
     }
   }
-
   //#############################################
+
   //NEW EVENT SCREEN
   @observable
   String eventName = '';
@@ -70,24 +71,31 @@ abstract class _ControllerBase with Store {
   @observable
   String city = '';
   //#############################################
+
   //EVENT LIST SCREEN
 
   //#############################################
+
   //SOFT EVENT LIST SCREEN
 
   //#############################################
+
   //SOFT EVENT INFO SCREEN
 
   //#############################################
+
   //SOFT EVENT PLACE SCREEN
 
   //#############################################
+
   //MY EVENT LIST SCREEN
 
   //#############################################
+
   //MY EVENT INFO SCREEN
 
   //#############################################
+
   //PASSWORD FIELD WIDGET
   @observable
   bool isHidden = true;
@@ -96,4 +104,5 @@ abstract class _ControllerBase with Store {
   void togglePasswordVisibility() {
     isHidden = !isHidden;
   }
+  //#############################################
 }
