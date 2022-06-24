@@ -59,7 +59,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     labelText: 'E-mail',
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (String value) {
-                      controller.user = value;
+                      controller.pwRecover = value;
                     },
                   ),
                 ),

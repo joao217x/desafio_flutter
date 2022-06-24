@@ -20,13 +20,16 @@ abstract class _ControllerBase with Store {
   @observable
   String password = '';
 
+  @observable
+  String pwRecover = '';
+
   @action
-  Future<void> logInUser({
+  Future<UserCredential> logIn({
     required String email,
     required String password,
   }) async {
     try {
-      await firebaseClient.logInFirebase(
+      return await firebaseClient.logInFirebase(
         email: email,
         password: password,
       );

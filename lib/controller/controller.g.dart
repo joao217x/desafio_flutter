@@ -40,6 +40,22 @@ mixin _$Controller on _ControllerBase, Store {
     });
   }
 
+  late final _$pwRecoverAtom =
+      Atom(name: '_ControllerBase.pwRecover', context: context);
+
+  @override
+  String get pwRecover {
+    _$pwRecoverAtom.reportRead();
+    return super.pwRecover;
+  }
+
+  @override
+  set pwRecover(String value) {
+    _$pwRecoverAtom.reportWrite(value, super.pwRecover, () {
+      super.pwRecover = value;
+    });
+  }
+
   late final _$eventNameAtom =
       Atom(name: '_ControllerBase.eventName', context: context);
 
@@ -213,6 +229,16 @@ mixin _$Controller on _ControllerBase, Store {
     });
   }
 
+  late final _$logInAsyncAction =
+      AsyncAction('_ControllerBase.logIn', context: context);
+
+  @override
+  Future<UserCredential> logIn(
+      {required String email, required String password}) {
+    return _$logInAsyncAction
+        .run(() => super.logIn(email: email, password: password));
+  }
+
   late final _$_ControllerBaseActionController =
       ActionController(name: '_ControllerBase', context: context);
 
@@ -232,6 +258,7 @@ mixin _$Controller on _ControllerBase, Store {
     return '''
 user: ${user},
 password: ${password},
+pwRecover: ${pwRecover},
 eventName: ${eventName},
 eventDesc: ${eventDesc},
 date: ${date},
