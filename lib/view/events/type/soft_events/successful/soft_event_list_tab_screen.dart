@@ -1,7 +1,6 @@
-import 'dart:developer';
-import 'package:desafio_flutter/model/event/event_model.dart';
-import 'package:desafio_flutter/service/agenda_client.dart';
+import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SoftEventListScreen extends StatefulWidget {
   const SoftEventListScreen({Key? key}) : super(key: key);
@@ -11,57 +10,127 @@ class SoftEventListScreen extends StatefulWidget {
 }
 
 class _SoftEventListScreenState extends State<SoftEventListScreen> {
-  List<EventModel> eventList = [];
-
-  @override
-  void initState() {
-    initialLoad();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          ListView.builder(
-            itemCount: eventList.length,
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(10),
-            physics: const ScrollPhysics(),
-            itemBuilder: (context, index) {
-              return card(eventList[index]);
-            },
+      body: Padding(
+        padding:
+            const EdgeInsets.only(top: 25, right: 16, left: 16, bottom: 60),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              IntrinsicHeight(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.popAndPushNamed(context, '/softEventInfo');
+                  },
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 6),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text('SEX'),
+                            Text('03/06'),
+                          ],
+                        ),
+                      ),
+                      const VerticalDivider(
+                        thickness: 2,
+                        width: 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SvgPicture.asset(
+                              'assets/event_header.svg',
+                              fit: BoxFit.fitHeight,
+                            ),
+                            const SizedBox(height: 4),
+                            const Text(
+                              'SoftTalk + Happy Soft Hour',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            const SizedBox(
+                              width: 300,
+                              child: Text(
+                                'Vamos celebrar? Sim! Teve reforma da sede, gravação de vídeo, registro fotográfico e uma nova marca está por vir… Isso tudo merece um brinde do nosso jeito: o primeiro Happy Soft Hour de 2022! vamos bibibi',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: AppColor.grey,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Row(
+                              children: const [
+                                Text(
+                                  '17:00',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColor.orange,
+                                  ),
+                                ),
+                                Text(
+                                  '  -  ',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Text(
+                                  '20:00',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColor.orange,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const [
+                                Icon(
+                                  Icons.room,
+                                  color: AppColor.grey,
+                                ),
+                                Text(
+                                  'Rua Manoel Pedro Bernardo,...',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: AppColor.grey,
+                                  ),
+                                )
+                              ],
+                            ),
+                            const SizedBox(height: 5),
+                            const Text(
+                              'Ver no mapa',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: AppColor.purple,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-          ElevatedButton(
-            onPressed: () async {
-              final result = await AgendaClient().getListaEventos();
-              setState(() {});
-
-              inspect(result);
-            },
-            child: const Text('botao'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Future<void> initialLoad() async {
-    eventList = await AgendaClient().getListaEventos();
-  }
-
-  Widget card(EventModel event) {
-    return InkWell(
-      onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Text('nome do evento: ${event.name}'),
-            Text('descrição do evento: ${event.description}'),
-            Text('rua do evento: ${event.address.rua}'),
-          ],
         ),
       ),
     );

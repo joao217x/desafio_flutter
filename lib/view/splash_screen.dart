@@ -17,11 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      if (FirebaseAuth.instance.currentUser != null) {
-        Navigator.popAndPushNamed(context, '/allEvents');
-      } else {
-        Navigator.popAndPushNamed(context, '/login');
-      }
+      FirebaseAuth.instance.currentUser != null
+          ? Navigator.popAndPushNamed(context, '/allEvents')
+          : Navigator.popAndPushNamed(context, '/login');
     });
   }
 

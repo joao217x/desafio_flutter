@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: AppColor.purple,
                           ),
                         ),
-                        onTap: () async {
+                        onTap: () {
                           Navigator.popAndPushNamed(context, '/forget');
                         },
                       ),

@@ -38,13 +38,13 @@ class _AllEventListScreenState extends State<AllEventListScreen> {
                 child: TabBarView(
                   children: [
                     // ##### SOFT EVENTOS #####
-                    // SoftEventList(), // -> lista de eventos
+                    SoftEventListScreen(), // -> lista de eventos
                     // EventLoadError(), // -> erro no loading dos eventos
-                    EventNonRegistered(), // - > nenhum evento cadastrado
+                    // EventNonRegistered(), // - > nenhum evento cadastrado
 
                     // ##### MEUS EVENTOS #####
-                    // MyEventList(), // -> lista de eventos
-                    EventNonCreated() // -> nenhum evento criado
+                    MyEventListScreen(), // -> lista de eventos
+                    // EventNonCreated() // -> nenhum evento criado
                   ],
                 ),
               ),
