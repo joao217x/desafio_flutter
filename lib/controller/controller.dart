@@ -77,15 +77,15 @@ abstract class _ControllerBase with Store {
 
   //#############################################
 
-  //SOFT EVENT TABS SCREEN
+  //SOFT AND MY EVENT TABS SCREEN
 
   //#############################################
 
-  //SOFT EVENT LIST TAB
+  //SOFT AND MY EVENT LIST TAB
   final AgendaClient agendaClient = AgendaClient();
 
   @observable
-  EventModel? eventModel;
+  List<EventModel> eventModel = [];
 
   @observable
   List<EventModel>? eventModelList;
@@ -101,23 +101,11 @@ abstract class _ControllerBase with Store {
   }
   //#############################################
 
-  //SOFT EVENT INFO TAB
+  //SOFT AND MY EVENT INFO TAB
 
   //#############################################
 
   //SOFT EVENT PLACE TAB
-
-  //#############################################
-
-  //MY EVENT TABS SCREEN
-
-  //#############################################
-
-  //MY EVENT LIST TAB
-
-  //#############################################
-
-  //MY EVENT INFO TAB
 
   //#############################################
 

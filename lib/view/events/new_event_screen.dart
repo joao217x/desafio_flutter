@@ -23,7 +23,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
       appBar: CustomAppBarNavigator(
         title: 'Adicionar evento',
         onPressed: () {
-          Navigator.popAndPushNamed(context, '/allEvents');
+          Navigator.popAndPushNamed(context, '/tabs');
         },
       ),
       body: SingleChildScrollView(

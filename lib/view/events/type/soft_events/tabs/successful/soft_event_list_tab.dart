@@ -1,6 +1,9 @@
-import 'package:desafio_flutter/service/agenda_client.dart';
+import 'dart:developer';
+
+import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SoftEventListTab extends StatefulWidget {
@@ -11,29 +14,24 @@ class SoftEventListTab extends StatefulWidget {
 }
 
 class _SoftEventListTabState extends State<SoftEventListTab> {
+  Controller controller = Controller();
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      // itemCount: snapshot.data!.length,
-      itemBuilder: (context, index) {
-        // controller.eventModelList = snapshot.data;
-        // controller.eventModel = controller.eventModelList![index];
-
-        return Padding(
-          padding: const EdgeInsets.only(
-            top: 25,
-            right: 16,
-            left: 16,
-            bottom: 60,
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                IntrinsicHeight(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.popAndPushNamed(context, '/softEventInfo');
-                    },
+    return Observer(builder: (_) {
+      return Padding(
+        padding:
+            const EdgeInsets.only(top: 25, right: 16, left: 16, bottom: 60),
+        child: ListView.builder(
+          itemCount: controller.eventModel.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.popAndPushNamed(context, '/softEventInfo');
+              },
+              child: Column(
+                children: [
+                  IntrinsicHeight(
                     child: Row(
                       children: [
                         Padding(
@@ -64,19 +62,18 @@ class _SoftEventListTabState extends State<SoftEventListTab> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                // controller.eventModelList!.length
-                                'aaaaaaaaa',
+                                controller.eventModel[index].name,
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               const SizedBox(height: 4),
-                              const SizedBox(
+                              SizedBox(
                                 width: 300,
                                 child: Text(
-                                  'Vamos celebrar? Sim! Teve reforma da sede, gravação de vídeo, registro fotográfico e uma nova marca está por vir… Isso tudo merece um brinde do nosso jeito: o primeiro Happy Soft Hour de 2022! vamos bibibi',
-                                  style: TextStyle(
+                                  controller.eventModel[index].description,
+                                  style: const TextStyle(
                                     fontSize: 14,
                                     color: AppColor.grey,
                                   ),
@@ -114,14 +111,14 @@ class _SoftEventListTabState extends State<SoftEventListTab> {
                               const SizedBox(height: 5),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
-                                  Icon(
+                                children: [
+                                  const Icon(
                                     Icons.room,
                                     color: AppColor.grey,
                                   ),
                                   Text(
-                                    'Rua Manoel Pedro Bernardo,...',
-                                    style: TextStyle(
+                                    controller.eventModel[index].address.rua,
+                                    style: const TextStyle(
                                       fontSize: 12,
                                       color: AppColor.grey,
                                     ),
@@ -136,24 +133,19 @@ class _SoftEventListTabState extends State<SoftEventListTab> {
                                   color: AppColor.purple,
                                 ),
                               ),
-                              ElevatedButton(
-                                onPressed: () async {
-                                  await AgendaClient().getListaEventos();
-                                },
-                                child: const Text('botao'),
-                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
+                  const SizedBox(height: 23)
+                ],
+              ),
+            );
+          },
+        ),
+      );
+    });
   }
 }

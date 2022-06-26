@@ -1,6 +1,9 @@
+import 'package:desafio_flutter/controller/controller.dart';
+import 'package:desafio_flutter/model/event/event_model.dart';
 import 'package:desafio_flutter/service/agenda_client.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MyEventListTab extends StatefulWidget {
@@ -11,29 +14,25 @@ class MyEventListTab extends StatefulWidget {
 }
 
 class _MyEventListTabState extends State<MyEventListTab> {
+  Controller controller = Controller();
+  List<EventModel> eventModel = [];
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      // itemCount: snapshot.data!.length,
-      itemBuilder: (context, index) {
-        // controller.eventModelList = snapshot.data;
-        // controller.eventModel = controller.eventModelList![index];
-
-        return Padding(
-          padding: const EdgeInsets.only(
-            top: 25,
-            right: 16,
-            left: 16,
-            bottom: 60,
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                IntrinsicHeight(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.popAndPushNamed(context, '/myEventInfo');
-                    },
+    return Observer(builder: (_) {
+      return Padding(
+        padding:
+            const EdgeInsets.only(top: 25, right: 16, left: 16, bottom: 60),
+        child: ListView.builder(
+          itemCount: eventModel.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.popAndPushNamed(context, '/myEventInfo');
+              },
+              child: Column(
+                children: [
+                  IntrinsicHeight(
                     child: Row(
                       children: [
                         Padding(
@@ -64,8 +63,8 @@ class _MyEventListTabState extends State<MyEventListTab> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                // controller.eventModelList!.length
-                                'aaaaaaaaa',
+                                eventModel[index].name,
+                                // 'aaaaaaaaa',
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
@@ -148,12 +147,13 @@ class _MyEventListTabState extends State<MyEventListTab> {
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
+                  const SizedBox(height: 23)
+                ],
+              ),
+            );
+          },
+        ),
+      );
+    });
   }
 }

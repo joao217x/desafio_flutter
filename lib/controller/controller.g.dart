@@ -217,13 +217,13 @@ mixin _$Controller on _ControllerBase, Store {
       Atom(name: '_ControllerBase.eventModel', context: context);
 
   @override
-  EventModel? get eventModel {
+  List<EventModel> get eventModel {
     _$eventModelAtom.reportRead();
     return super.eventModel;
   }
 
   @override
-  set eventModel(EventModel? value) {
+  set eventModel(List<EventModel> value) {
     _$eventModelAtom.reportWrite(value, super.eventModel, () {
       super.eventModel = value;
     });

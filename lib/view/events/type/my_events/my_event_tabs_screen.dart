@@ -14,7 +14,7 @@ class MyEventTabsScreen extends StatefulWidget {
 class _MyEventTabsScreenState extends State<MyEventTabsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const MyEventListTab();
     // TAB ERRO
     // const MyEventNonCreatedTab();
     // TAB SUCESSO

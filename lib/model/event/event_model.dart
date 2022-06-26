@@ -1,6 +1,7 @@
 import 'package:desafio_flutter/model/event/address_model.dart';
 
 class EventModel {
+  final int id;
   final String name;
   final String description;
   final String startTime;
@@ -8,6 +9,7 @@ class EventModel {
   final AddressModel address;
 
   EventModel({
+    required this.id,
     required this.name,
     required this.description,
     required this.startTime,
@@ -17,6 +19,7 @@ class EventModel {
 
   factory EventModel.fromJson(Map<String, dynamic> json) {
     return EventModel(
+      id: json['id'],
       name: json['event_name'],
       description: json['event_description'],
       startTime: json['start_time'],
@@ -26,6 +29,7 @@ class EventModel {
   }
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'event_name': name,
         'event_description': description,
         'start_time': startTime,

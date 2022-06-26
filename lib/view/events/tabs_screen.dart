@@ -23,24 +23,22 @@ class _TabsScreenState extends State<TabsScreen> {
       length: 2,
       child: Scaffold(
         appBar: const CustomAppBar(),
-        body: Observer(builder: (_) {
-          return Column(
-            children: const [
-              SizedBox(
-                height: 55,
-                child: CustomTabWidget(),
+        body: Column(
+          children: const [
+            SizedBox(
+              height: 55,
+              child: CustomTabWidget(),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  SoftEventTabsScreen(),
+                  MyEventTabsScreen(),
+                ],
               ),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    SoftEventTabsScreen(),
-                    MyEventTabsScreen(),
-                  ],
-                ),
-              ),
-            ],
-          );
-        }),
+            ),
+          ],
+        ),
         floatingActionButton: SizedBox(
           height: 38,
           width: 265,
