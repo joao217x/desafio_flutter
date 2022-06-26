@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class EventNonRegistered extends StatefulWidget {
-  const EventNonRegistered({Key? key}) : super(key: key);
+class MyEventNonCreatedTab extends StatefulWidget {
+  const MyEventNonCreatedTab({Key? key}) : super(key: key);
 
   @override
-  State<EventNonRegistered> createState() => _EventNonRegisteredState();
+  State<MyEventNonCreatedTab> createState() => _MyEventNonCreatedTabState();
 }
 
-class _EventNonRegisteredState extends State<EventNonRegistered> {
+class _MyEventNonCreatedTabState extends State<MyEventNonCreatedTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class _EventNonRegisteredState extends State<EventNonRegistered> {
           const Padding(
             padding: EdgeInsets.only(top: 15),
             child: Text(
-              'Não há nenhum evento cadastrado',
+              'Você ainda não criou nenhum evento',
             ),
           ),
         ],

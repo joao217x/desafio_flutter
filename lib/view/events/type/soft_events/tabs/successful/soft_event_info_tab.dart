@@ -1,23 +1,23 @@
-import 'package:desafio_flutter/helper/appbar_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
+import 'package:desafio_flutter/shared/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SoftEventInfoScreen extends StatefulWidget {
-  const SoftEventInfoScreen({Key? key}) : super(key: key);
+class SoftEventInfoTab extends StatefulWidget {
+  const SoftEventInfoTab({Key? key}) : super(key: key);
 
   @override
-  State<SoftEventInfoScreen> createState() => _SoftEventInfoScreenState();
+  State<SoftEventInfoTab> createState() => _SoftEventInfoTabState();
 }
 
-class _SoftEventInfoScreenState extends State<SoftEventInfoScreen> {
+class _SoftEventInfoTabState extends State<SoftEventInfoTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBarNavigator(
         title: 'Detalhes do evento',
         onPressed: () {
-          Navigator.popAndPushNamed(context, '/allEvents');
+          Navigator.popAndPushNamed(context, '/tabs');
         },
       ),
       body: Padding(

@@ -213,6 +213,38 @@ mixin _$Controller on _ControllerBase, Store {
     });
   }
 
+  late final _$eventModelAtom =
+      Atom(name: '_ControllerBase.eventModel', context: context);
+
+  @override
+  EventModel? get eventModel {
+    _$eventModelAtom.reportRead();
+    return super.eventModel;
+  }
+
+  @override
+  set eventModel(EventModel? value) {
+    _$eventModelAtom.reportWrite(value, super.eventModel, () {
+      super.eventModel = value;
+    });
+  }
+
+  late final _$eventModelListAtom =
+      Atom(name: '_ControllerBase.eventModelList', context: context);
+
+  @override
+  List<EventModel>? get eventModelList {
+    _$eventModelListAtom.reportRead();
+    return super.eventModelList;
+  }
+
+  @override
+  set eventModelList(List<EventModel>? value) {
+    _$eventModelListAtom.reportWrite(value, super.eventModelList, () {
+      super.eventModelList = value;
+    });
+  }
+
   late final _$isHiddenAtom =
       Atom(name: '_ControllerBase.isHidden', context: context);
 
@@ -237,6 +269,16 @@ mixin _$Controller on _ControllerBase, Store {
       {required String email, required String password}) {
     return _$logInAsyncAction
         .run(() => super.logIn(email: email, password: password));
+  }
+
+  late final _$getListaEventosControllerAsyncAction = AsyncAction(
+      '_ControllerBase.getListaEventosController',
+      context: context);
+
+  @override
+  Future<List<EventModel>?> getListaEventosController() {
+    return _$getListaEventosControllerAsyncAction
+        .run(() => super.getListaEventosController());
   }
 
   late final _$_ControllerBaseActionController =
@@ -269,6 +311,8 @@ street: ${street},
 number: ${number},
 neighbourhood: ${neighbourhood},
 city: ${city},
+eventModel: ${eventModel},
+eventModelList: ${eventModelList},
 isHidden: ${isHidden}
     ''';
   }

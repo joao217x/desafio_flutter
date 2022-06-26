@@ -1,3 +1,5 @@
+import 'package:desafio_flutter/model/event/event_model.dart';
+import 'package:desafio_flutter/service/agenda_client.dart';
 import 'package:desafio_flutter/service/firebase_client.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobx/mobx.dart';
@@ -13,7 +15,6 @@ abstract class _ControllerBase with Store {
 
   //LOGIN AND FORGET PASSWORD SCREEN
   FirebaseClient firebaseClient = FirebaseClient();
-  final instance = FirebaseAuth.instance;
 
   @observable
   String user = '';
@@ -72,27 +73,51 @@ abstract class _ControllerBase with Store {
   String city = '';
   //#############################################
 
-  //EVENT LIST SCREEN
+  //TABS SCREEN
 
   //#############################################
 
-  //SOFT EVENT LIST SCREEN
+  //SOFT EVENT TABS SCREEN
 
   //#############################################
 
-  //SOFT EVENT INFO SCREEN
+  //SOFT EVENT LIST TAB
+  final AgendaClient agendaClient = AgendaClient();
+
+  @observable
+  EventModel? eventModel;
+
+  @observable
+  List<EventModel>? eventModelList;
+
+  @action
+  Future<List<EventModel>?> getListaEventosController() async {
+    try {
+      eventModelList = await agendaClient.getListaEventos();
+      return eventModelList;
+    } catch (_) {
+      throw 'erro';
+    }
+  }
+  //#############################################
+
+  //SOFT EVENT INFO TAB
 
   //#############################################
 
-  //SOFT EVENT PLACE SCREEN
+  //SOFT EVENT PLACE TAB
 
   //#############################################
 
-  //MY EVENT LIST SCREEN
+  //MY EVENT TABS SCREEN
 
   //#############################################
 
-  //MY EVENT INFO SCREEN
+  //MY EVENT LIST TAB
+
+  //#############################################
+
+  //MY EVENT INFO TAB
 
   //#############################################
 

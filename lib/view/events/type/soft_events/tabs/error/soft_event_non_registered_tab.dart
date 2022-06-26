@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-class EventLoadError extends StatefulWidget {
-  const EventLoadError({Key? key}) : super(key: key);
+class SoftEventNonRegisteredTab extends StatefulWidget {
+  const SoftEventNonRegisteredTab({Key? key}) : super(key: key);
 
   @override
-  State<EventLoadError> createState() => _EventLoadErrorState();
+  State<SoftEventNonRegisteredTab> createState() => _SoftEventNonRegisteredTabState();
 }
 
-class _EventLoadErrorState extends State<EventLoadError> {
+class _SoftEventNonRegisteredTabState extends State<SoftEventNonRegisteredTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +17,13 @@ class _EventLoadErrorState extends State<EventLoadError> {
         children: [
           Center(
             child: SvgPicture.asset(
-              'assets/event_load_error.svg',
+              'assets/two_clipboards.svg',
             ),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 15),
             child: Text(
-              'Ocorreu um erro ao carregar os eventos',
+              'Não há nenhum evento cadastrado',
             ),
           ),
         ],

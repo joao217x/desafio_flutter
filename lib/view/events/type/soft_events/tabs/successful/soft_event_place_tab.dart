@@ -1,14 +1,14 @@
-import 'package:desafio_flutter/helper/appbar_widget.dart';
+import 'package:desafio_flutter/shared/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 
-class SoftEventPlaceScreen extends StatefulWidget {
-  const SoftEventPlaceScreen({Key? key}) : super(key: key);
+class SoftEventPlaceTab extends StatefulWidget {
+  const SoftEventPlaceTab({Key? key}) : super(key: key);
 
   @override
-  State<SoftEventPlaceScreen> createState() => _SoftEventPlaceScreenState();
+  State<SoftEventPlaceTab> createState() => _SoftEventPlaceTabState();
 }
 
-class _SoftEventPlaceScreenState extends State<SoftEventPlaceScreen> {
+class _SoftEventPlaceTabState extends State<SoftEventPlaceTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,23 +1,23 @@
-import 'package:desafio_flutter/helper/appbar_widget.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
+import 'package:desafio_flutter/shared/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class MyEventInfoScreen extends StatefulWidget {
-  const MyEventInfoScreen({Key? key}) : super(key: key);
+class MyEventInfoTab extends StatefulWidget {
+  const MyEventInfoTab({Key? key}) : super(key: key);
 
   @override
-  State<MyEventInfoScreen> createState() => _MyEventInfoScreenState();
+  State<MyEventInfoTab> createState() => _MyEventInfoTabState();
 }
 
-class _MyEventInfoScreenState extends State<MyEventInfoScreen> {
+class _MyEventInfoTabState extends State<MyEventInfoTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBarNavigator(
         title: 'Detalhes do evento',
         onPressed: () {
-          Navigator.popAndPushNamed(context, '/allEvents');
+          Navigator.popAndPushNamed(context, '/tabs');
         },
       ),
       body: Padding(

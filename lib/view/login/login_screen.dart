@@ -1,8 +1,8 @@
 import 'package:desafio_flutter/controller/controller.dart';
-import 'package:desafio_flutter/helper/elevated_button_widget.dart';
-import 'package:desafio_flutter/helper/txt_form_field_widget.dart';
 import 'package:desafio_flutter/service/firebase_client.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
+import 'package:desafio_flutter/shared/widgets/elevated_button_widget.dart';
+import 'package:desafio_flutter/shared/widgets/txt_form_field_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';

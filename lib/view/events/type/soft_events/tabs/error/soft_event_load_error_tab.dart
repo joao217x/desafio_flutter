@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class EventNonCreated extends StatefulWidget {
-  const EventNonCreated({Key? key}) : super(key: key);
+class SoftEventLoadErrorTab extends StatefulWidget {
+  const SoftEventLoadErrorTab({Key? key}) : super(key: key);
 
   @override
-  State<EventNonCreated> createState() => _EventNonCreatedState();
+  State<SoftEventLoadErrorTab> createState() => _SoftEventLoadErrorTabState();
 }
 
-class _EventNonCreatedState extends State<EventNonCreated> {
+class _SoftEventLoadErrorTabState extends State<SoftEventLoadErrorTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +17,13 @@ class _EventNonCreatedState extends State<EventNonCreated> {
         children: [
           Center(
             child: SvgPicture.asset(
-              'assets/two_clipboards.svg',
+              'assets/event_load_error.svg',
             ),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 15),
             child: Text(
-              'Você ainda não criou nenhum evento',
+              'Ocorreu um erro ao carregar os eventos',
             ),
           ),
         ],
