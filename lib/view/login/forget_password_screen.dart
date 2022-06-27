@@ -1,10 +1,8 @@
-import 'dart:developer';
 import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/shared/widgets/elevated_button_widget.dart';
 import 'package:desafio_flutter/shared/widgets/snackbar_widget.dart';
 import 'package:desafio_flutter/shared/widgets/txt_form_field_widget.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,21 +17,6 @@ class ForgetPasswordScreen extends StatefulWidget {
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   Controller controller = Controller();
-
-  //COMO PASSAR ISSO PARA O MOBX/FIREBASE CLIENT???
-  Future pwReset() async {
-    try {
-      await FirebaseAuth.instance
-          .sendPasswordResetEmail(email: controller.pwRecover);
-      SnackbarForgetPassword.success
-          .show(context)
-          .then((value) => Navigator.popAndPushNamed(context, '/login'));
-    } on FirebaseAuthException catch (e) {
-      log(e.toString());
-      SnackbarForgetPassword.error.show(context);
-    }
-  }
-  //#############################################
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +69,21 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       child: CustomElevatedButton(
                         text: 'Enviar',
                         onPressed: () async {
-                          pwReset();
+                          controller
+                              .pwReset(
+                                email: controller.pwRecover,
+                                resetResult: controller.resetResultState,
+                              )
+                              .then(
+                                (value) => controller.resetResultState
+                                    ? SnackbarForgetPassword.success
+                                        .show(context)
+                                        .then((value) =>
+                                            Navigator.popAndPushNamed(
+                                                context, '/login'))
+                                    : SnackbarForgetPassword.error
+                                        .show(context),
+                              );
                         },
                       ),
                     ),

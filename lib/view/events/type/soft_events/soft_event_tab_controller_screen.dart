@@ -4,14 +4,14 @@ import 'package:desafio_flutter/view/events/type/soft_events/tabs/error/soft_eve
 import 'package:desafio_flutter/view/events/type/soft_events/tabs/successful/soft_event_list_tab.dart';
 import 'package:flutter/material.dart';
 
-class SoftEventTabsScreen extends StatefulWidget {
-  const SoftEventTabsScreen({Key? key}) : super(key: key);
+class SoftEventTabController extends StatefulWidget {
+  const SoftEventTabController({Key? key}) : super(key: key);
 
   @override
-  State<SoftEventTabsScreen> createState() => _SoftEventTabsScreenState();
+  State<SoftEventTabController> createState() => _SoftEventTabControllerState();
 }
 
-class _SoftEventTabsScreenState extends State<SoftEventTabsScreen> {
+class _SoftEventTabControllerState extends State<SoftEventTabController> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<EventModel>>(

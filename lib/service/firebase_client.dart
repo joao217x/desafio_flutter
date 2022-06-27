@@ -16,4 +16,8 @@ class FirebaseClient {
       throw e;
     }
   }
+
+  Future<void> pwResetFirebase ({required email}) async {
+    await instance.sendPasswordResetEmail(email: email);
+  }
 }

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:desafio_flutter/model/event/event_model.dart';
 import 'package:dio/dio.dart';
 

@@ -1,9 +1,10 @@
 import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/shared/widgets/appbar_widget.dart';
-import 'package:desafio_flutter/shared/widgets/tab_widget.dart';
-import 'package:desafio_flutter/view/events/type/my_events/my_event_tabs_screen.dart';
-import 'package:desafio_flutter/view/events/type/soft_events/soft_event_tabs_screen.dart';
+import 'package:desafio_flutter/shared/widgets/tabs_widget.dart';
+import 'package:desafio_flutter/view/events/type/my_events/my_event_tab_controller_screen.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/soft_event_tab_controller_screen.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/tabs/successful/soft_event_list_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -32,8 +33,8 @@ class _TabsScreenState extends State<TabsScreen> {
             Expanded(
               child: TabBarView(
                 children: [
-                  SoftEventTabsScreen(),
-                  MyEventTabsScreen(),
+                  SoftEventTabController(),
+                  MyEventTabController(),
                 ],
               ),
             ),

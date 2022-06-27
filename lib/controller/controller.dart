@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:desafio_flutter/model/event/event_model.dart';
 import 'package:desafio_flutter/service/agenda_client.dart';
 import 'package:desafio_flutter/service/firebase_client.dart';
@@ -25,6 +27,12 @@ abstract class _ControllerBase with Store {
   @observable
   String pwRecover = '';
 
+  @observable
+  bool resetResultState = false;
+
+  @action
+  void setResetResultState(bool value) => resetResultState = value;
+
   @action
   Future<UserCredential> logIn({
     required String email,
@@ -37,6 +45,18 @@ abstract class _ControllerBase with Store {
       );
     } catch (e) {
       throw e;
+    }
+  }
+
+  Future<void> pwReset({required email, required bool resetResult}) async {
+    try {
+      await firebaseClient.pwResetFirebase(email: pwRecover);
+      setResetResultState(true);
+      resetResult = resetResultState;
+    } on FirebaseAuthException catch (e) {
+      log(e.toString());
+      setResetResultState(false);
+      resetResult = resetResultState;
     }
   }
   //#############################################

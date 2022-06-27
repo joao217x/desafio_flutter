@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +16,7 @@ class _SoftEventListTabState extends State<SoftEventListTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
+    return Observer(builder: (context) {
       return Padding(
         padding:
             const EdgeInsets.only(top: 25, right: 16, left: 16, bottom: 60),
@@ -31,7 +29,8 @@ class _SoftEventListTabState extends State<SoftEventListTab> {
               },
               child: Column(
                 children: [
-                  IntrinsicHeight(
+                  SizedBox(
+                    height: 270,
                     child: Row(
                       children: [
                         Padding(

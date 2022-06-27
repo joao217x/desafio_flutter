@@ -33,15 +33,11 @@ dependencies:
   #UX/UI
   flutter_svg: ^1.1.0
   google_fonts: ^3.0.1
+  another_flushbar: ^1.10.29 #snackbar
+  mask_input_formatter: ^0.0.3 #mask
 
   #STORAGE
   shared_preferences: ^2.0.15
-
-  #SNACKBAR
-  another_flushbar: ^1.10.29
-
-  #MASK
-  mask_input_formatter: ^0.0.3
 
 dev_dependencies:
   flutter_test:

@@ -56,6 +56,22 @@ mixin _$Controller on _ControllerBase, Store {
     });
   }
 
+  late final _$resetResultStateAtom =
+      Atom(name: '_ControllerBase.resetResultState', context: context);
+
+  @override
+  bool get resetResultState {
+    _$resetResultStateAtom.reportRead();
+    return super.resetResultState;
+  }
+
+  @override
+  set resetResultState(bool value) {
+    _$resetResultStateAtom.reportWrite(value, super.resetResultState, () {
+      super.resetResultState = value;
+    });
+  }
+
   late final _$eventNameAtom =
       Atom(name: '_ControllerBase.eventName', context: context);
 
@@ -285,6 +301,17 @@ mixin _$Controller on _ControllerBase, Store {
       ActionController(name: '_ControllerBase', context: context);
 
   @override
+  void setResetResultState(bool value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setResetResultState');
+    try {
+      return super.setResetResultState(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void togglePasswordVisibility() {
     final _$actionInfo = _$_ControllerBaseActionController.startAction(
         name: '_ControllerBase.togglePasswordVisibility');
@@ -301,6 +328,7 @@ mixin _$Controller on _ControllerBase, Store {
 user: ${user},
 password: ${password},
 pwRecover: ${pwRecover},
+resetResultState: ${resetResultState},
 eventName: ${eventName},
 eventDesc: ${eventDesc},
 date: ${date},

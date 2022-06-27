@@ -165,14 +165,12 @@ class _NewEventScreenState extends State<NewEventScreen> {
                     ),
                     SizedBox(
                       width: 75,
-                      child: Expanded(
-                        child: TxtFormFieldWidget(
-                          labelText: 'Número',
-                          keyboardType: TextInputType.number,
-                          onChanged: (String value) {
-                            controller.number = value;
-                          },
-                        ),
+                      child: TxtFormFieldWidget(
+                        labelText: 'Número',
+                        keyboardType: TextInputType.number,
+                        onChanged: (String value) {
+                          controller.number = value;
+                        },
                       ),
                     ),
                   ],
