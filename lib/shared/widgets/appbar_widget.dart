@@ -2,7 +2,9 @@ import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+  final VoidCallback? logout;
+
+  const CustomAppBar({Key? key, this.logout}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(60);
@@ -23,6 +25,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           bottomRight: Radius.circular(16),
         ),
       ),
+      actions: [
+        Visibility(
+          visible: logout != null ? true : false,
+          child: InkWell(
+            onTap: logout,
+            child: const Padding(
+              padding: EdgeInsets.only(right: 16),
+              child: Icon(Icons.logout_rounded),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

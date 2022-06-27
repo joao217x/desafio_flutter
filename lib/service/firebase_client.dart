@@ -24,4 +24,12 @@ class FirebaseClient {
       throw e.toString();
     }
   }
+
+  Future<void> logoutFirebase() async {
+    try {
+      await instance.signOut();
+    } on FirebaseAuthException catch (e) {
+      throw e.toString();
+    }
+  }
 }

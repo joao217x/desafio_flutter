@@ -1,12 +1,13 @@
+import 'dart:developer';
+
 import 'package:desafio_flutter/controller/controller.dart';
 import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/shared/widgets/appbar_widget.dart';
 import 'package:desafio_flutter/shared/widgets/tabs_widget.dart';
-import 'package:desafio_flutter/view/events/type/my_events/my_event_tab_controller_screen.dart';
-import 'package:desafio_flutter/view/events/type/soft_events/soft_event_tab_controller_screen.dart';
-import 'package:desafio_flutter/view/events/type/soft_events/tabs/successful/soft_event_list_tab.dart';
+import 'package:desafio_flutter/view/events/type/my_events/my_events_controller.dart';
+import 'package:desafio_flutter/view/events/type/soft_events/soft_events_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({Key? key}) : super(key: key);
@@ -16,25 +17,38 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  final Controller mobxController = Controller();
-
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<Controller>(context, listen: false);
+    // log(controller.hashCode.toString());
+    controller.checkLogged();
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: const CustomAppBar(),
+        appBar: CustomAppBar(
+          logout: controller.isLogged
+              ? () async {
+                  await controller.logout().then(
+                        (_) => Navigator.pushNamedAndRemoveUntil(
+                            context, '/login', (route) => false),
+                      );
+                }
+              : null,
+        ),
         body: Column(
-          children: const [
-            SizedBox(
+          children: [
+            const SizedBox(
               height: 55,
               child: CustomTabWidget(),
             ),
             Expanded(
               child: TabBarView(
                 children: [
-                  SoftEventTabController(),
-                  MyEventTabController(),
+                  SoftEventsController(
+                      controller:
+                          Provider.of<Controller>(context, listen: false)),
+                  const MyEventsController(),
                 ],
               ),
             ),
@@ -49,7 +63,7 @@ class _TabsScreenState extends State<TabsScreen> {
               'Criar novo evento',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
-            onPressed: () {
+            onPressed: () async {
               Navigator.popAndPushNamed(context, '/newEvent');
             },
           ),

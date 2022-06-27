@@ -126,7 +126,6 @@ class _NewEventScreenState extends State<NewEventScreen> {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 15),
                         child: TxtFormFieldWidget(
-                          // key: Key(controller.setCep(controller.cep)),
                           initialValue: controller.setCep(controller.cep),
                           labelText: 'CEP',
                           keyboardType: TextInputType.number,

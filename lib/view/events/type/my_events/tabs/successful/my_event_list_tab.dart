@@ -128,7 +128,6 @@ class _MyEventListTabState extends State<MyEventListTab> {
                                     )
                                   ],
                                 ),
-                                const SizedBox(height: 5),
                               ],
                             ),
                           ),

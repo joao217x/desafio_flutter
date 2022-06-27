@@ -14,6 +14,19 @@ class Controller = _ControllerBase with _$Controller;
 
 abstract class _ControllerBase with Store {
   //SPLASH SCREEN
+  @observable
+  bool isLogged = false;
+  @action
+  void setIsLogged(bool value) => isLogged = value;
+
+  @action
+  void checkLogged() {
+    if (FirebaseAuth.instance.currentUser != null) {
+      setIsLogged(true);
+    } else {
+      setIsLogged(false);
+    }
+  }
 
   //#############################################
 
@@ -31,6 +44,12 @@ abstract class _ControllerBase with Store {
 
   @observable
   bool resetResultState = false;
+
+  @action
+  Future<void> logout() async {
+    await firebaseClient.logoutFirebase();
+    setIsLogged(false);
+  }
 
   @action
   void setResetResultState(bool value) => resetResultState = value;
@@ -156,19 +175,49 @@ abstract class _ControllerBase with Store {
   //SOFT AND MY EVENT LIST TAB
   final AgendaClient agendaClient = AgendaClient();
 
+  //event list
   @observable
-  List<EventModel> eventModel = [];
+  List<EventModel> eventList = [];
+  @action
+  void setEventList(List<EventModel> value) => eventList = value;
 
+  //loading
   @observable
-  List<EventModel>? eventModelList;
+  bool isLoading = false;
+  @action
+  void setIsLoading(bool value) => isLoading = value;
+
+  //error
+  @observable
+  bool isError = false;
+  @action
+  void setIsError(bool value) => isError = value;
 
   @action
-  Future<List<EventModel>?> getListaEventosController() async {
+  void initLoading() {
+    setIsError(false);
+    setIsLoading(true);
+  }
+
+  @action
+  void endLoading() {
+    setIsError(false);
+    setIsLoading(false);
+  }
+
+  @action
+  Future<void> getListaEventos() async {
     try {
-      eventModelList = await agendaClient.getListaEventos();
-      return eventModelList;
-    } catch (_) {
-      throw 'erro';
+      initLoading();
+
+      final result = await agendaClient.getListaEventosAgenda();
+      setEventList(result);
+
+      endLoading();
+      inspect(eventList);
+    } catch (e) {
+      setIsError(true);
+      throw e.toString();
     }
   }
   //#############################################

@@ -3,7 +3,7 @@ import 'package:desafio_flutter/model/event/location_model.dart';
 class AddressModel {
   final int id;
   final String rua; //street
-  final int numero; //number
+  final String numero; //number
   final String cidade; //city
   final String uf; //uf
   final LocationModel location;
@@ -21,7 +21,7 @@ class AddressModel {
     return AddressModel(
       id: json['id'],
       rua: json['street'],
-      numero: json['numero'],
+      numero: json['number'],
       cidade: json['city'],
       uf: json['uf'],
       location: LocationModel.fromJson(json['location']),
@@ -31,7 +31,7 @@ class AddressModel {
   Map<String, dynamic> toJson() => {
         'id': id,
         'street': rua,
-        'numero': numero,
+        'number': numero,
         'city': cidade,
         'uf': uf,
         'location': location,

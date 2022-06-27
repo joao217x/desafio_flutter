@@ -9,6 +9,22 @@ part of 'controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$Controller on _ControllerBase, Store {
+  late final _$isLoggedAtom =
+      Atom(name: '_ControllerBase.isLogged', context: context);
+
+  @override
+  bool get isLogged {
+    _$isLoggedAtom.reportRead();
+    return super.isLogged;
+  }
+
+  @override
+  set isLogged(bool value) {
+    _$isLoggedAtom.reportWrite(value, super.isLogged, () {
+      super.isLogged = value;
+    });
+  }
+
   late final _$userAtom = Atom(name: '_ControllerBase.user', context: context);
 
   @override
@@ -263,35 +279,51 @@ mixin _$Controller on _ControllerBase, Store {
     });
   }
 
-  late final _$eventModelAtom =
-      Atom(name: '_ControllerBase.eventModel', context: context);
+  late final _$eventListAtom =
+      Atom(name: '_ControllerBase.eventList', context: context);
 
   @override
-  List<EventModel> get eventModel {
-    _$eventModelAtom.reportRead();
-    return super.eventModel;
+  List<EventModel> get eventList {
+    _$eventListAtom.reportRead();
+    return super.eventList;
   }
 
   @override
-  set eventModel(List<EventModel> value) {
-    _$eventModelAtom.reportWrite(value, super.eventModel, () {
-      super.eventModel = value;
+  set eventList(List<EventModel> value) {
+    _$eventListAtom.reportWrite(value, super.eventList, () {
+      super.eventList = value;
     });
   }
 
-  late final _$eventModelListAtom =
-      Atom(name: '_ControllerBase.eventModelList', context: context);
+  late final _$isLoadingAtom =
+      Atom(name: '_ControllerBase.isLoading', context: context);
 
   @override
-  List<EventModel>? get eventModelList {
-    _$eventModelListAtom.reportRead();
-    return super.eventModelList;
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
   }
 
   @override
-  set eventModelList(List<EventModel>? value) {
-    _$eventModelListAtom.reportWrite(value, super.eventModelList, () {
-      super.eventModelList = value;
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
+  late final _$isErrorAtom =
+      Atom(name: '_ControllerBase.isError', context: context);
+
+  @override
+  bool get isError {
+    _$isErrorAtom.reportRead();
+    return super.isError;
+  }
+
+  @override
+  set isError(bool value) {
+    _$isErrorAtom.reportWrite(value, super.isError, () {
+      super.isError = value;
     });
   }
 
@@ -309,6 +341,14 @@ mixin _$Controller on _ControllerBase, Store {
     _$isHiddenAtom.reportWrite(value, super.isHidden, () {
       super.isHidden = value;
     });
+  }
+
+  late final _$logoutAsyncAction =
+      AsyncAction('_ControllerBase.logout', context: context);
+
+  @override
+  Future<void> logout() {
+    return _$logoutAsyncAction.run(() => super.logout());
   }
 
   late final _$logInAsyncAction =
@@ -329,18 +369,38 @@ mixin _$Controller on _ControllerBase, Store {
     return _$getCepAsyncAction.run(() => super.getCep(cep));
   }
 
-  late final _$getListaEventosControllerAsyncAction = AsyncAction(
-      '_ControllerBase.getListaEventosController',
-      context: context);
+  late final _$getListaEventosAsyncAction =
+      AsyncAction('_ControllerBase.getListaEventos', context: context);
 
   @override
-  Future<List<EventModel>?> getListaEventosController() {
-    return _$getListaEventosControllerAsyncAction
-        .run(() => super.getListaEventosController());
+  Future<void> getListaEventos() {
+    return _$getListaEventosAsyncAction.run(() => super.getListaEventos());
   }
 
   late final _$_ControllerBaseActionController =
       ActionController(name: '_ControllerBase', context: context);
+
+  @override
+  void setIsLogged(bool value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setIsLogged');
+    try {
+      return super.setIsLogged(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void checkLogged() {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.checkLogged');
+    try {
+      return super.checkLogged();
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void setResetResultState(bool value) {
@@ -464,6 +524,61 @@ mixin _$Controller on _ControllerBase, Store {
   }
 
   @override
+  void setEventList(List<EventModel> value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setEventList');
+    try {
+      return super.setEventList(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setIsLoading(bool value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setIsLoading');
+    try {
+      return super.setIsLoading(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setIsError(bool value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setIsError');
+    try {
+      return super.setIsError(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void initLoading() {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.initLoading');
+    try {
+      return super.initLoading();
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void endLoading() {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.endLoading');
+    try {
+      return super.endLoading();
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void togglePasswordVisibility() {
     final _$actionInfo = _$_ControllerBaseActionController.startAction(
         name: '_ControllerBase.togglePasswordVisibility');
@@ -477,6 +592,7 @@ mixin _$Controller on _ControllerBase, Store {
   @override
   String toString() {
     return '''
+isLogged: ${isLogged},
 user: ${user},
 password: ${password},
 pwRecover: ${pwRecover},
@@ -484,8 +600,9 @@ resetResultState: ${resetResultState},
 cep: ${cep},
 cepModel: ${cepModel},
 cepResult: ${cepResult},
-eventModel: ${eventModel},
-eventModelList: ${eventModelList},
+eventList: ${eventList},
+isLoading: ${isLoading},
+isError: ${isError},
 isHidden: ${isHidden}
     ''';
   }
