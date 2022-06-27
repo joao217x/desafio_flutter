@@ -5,12 +5,12 @@ import 'package:dio/dio.dart';
 class CepClient {
   final client = Dio();
 
-  Future<CepModel> getCepEvento(String cep) async {
+  Future<CepModel> getCepClient(String cep) async {
     try {
-      final response = await client.get('https://viacep.com.br/ws/$cep/json/');
-      inspect(response.data);
+      final result = await client.get('https://viacep.com.br/ws/$cep/json/');
+      inspect(result.data);
 
-      return CepModel.fromJson(response.data);
+      return CepModel.fromJson(result.data);
     } catch (e) {
       throw e;
     }

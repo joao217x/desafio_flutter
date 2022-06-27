@@ -4,17 +4,19 @@ import 'package:mask_input_formatter/mask_input_formatter.dart';
 class TxtFormFieldWidget extends StatelessWidget {
   final String labelText;
   final TextInputType keyboardType;
-  final Function(String) onChanged;
+  final Function(String)? onChanged;
   final MaskInputFormatter? mask;
   final String? hintText;
+  final String? initialValue;
 
   const TxtFormFieldWidget({
     Key? key,
     required this.labelText,
     required this.keyboardType,
-    required this.onChanged,
+    this.onChanged,
     this.mask,
     this.hintText,
+    this.initialValue,
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class TxtFormFieldWidget extends StatelessWidget {
         hintText: hintText,
       ),
       onChanged: onChanged,
+      initialValue: initialValue,
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'dart:developer';
 
+import 'package:desafio_flutter/model/cep/cep_model.dart';
 import 'package:desafio_flutter/model/event/event_model.dart';
 import 'package:desafio_flutter/service/agenda_client.dart';
+import 'package:desafio_flutter/service/cep_client.dart';
 import 'package:desafio_flutter/service/firebase_client.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobx/mobx.dart';
@@ -53,7 +55,7 @@ abstract class _ControllerBase with Store {
       await firebaseClient.pwResetFirebase(email: pwRecover);
       setResetResultState(true);
       resetResult = resetResultState;
-    } on FirebaseAuthException catch (e) {
+    } catch (e) {
       log(e.toString());
       setResetResultState(false);
       resetResult = resetResultState;
@@ -62,35 +64,85 @@ abstract class _ControllerBase with Store {
   //#############################################
 
   //NEW EVENT SCREEN
-  @observable
-  String eventName = '';
 
+  //nome
   @observable
-  String eventDesc = '';
+  String _eventName = '';
+  @action
+  void setEventName(String value) => _eventName = value;
 
+  //descricao
   @observable
-  String date = '';
+  String _eventDesc = '';
+  @action
+  void setEventDesc(String value) => _eventDesc = value;
 
+  //data
   @observable
-  String timeStart = '';
+  String _date = '';
+  @action
+  void setDate(String value) => _date = value;
 
+  //inicio
   @observable
-  String timeEnd = '';
+  String _timeStart = '';
+  @action
+  void setTimeStart(String value) => _timeStart = value;
 
+  //fim
+  @observable
+  String _timeEnd = '';
+  @action
+  void setTimeEnd(String value) => _timeEnd = value;
+
+  //cep
   @observable
   String cep = '';
+  @action
+  String setCep(String value) => cep = value;
+
+  //rua
+  @observable
+  String _street = '';
+  @action
+  String setStreet() => _street = cepResult?.rua ?? '';
+
+  //numero
+  @observable
+  String _number = '';
+  @action
+  void setNumber(String value) => _number = value;
+
+  //bairro
+  @observable
+  String _neighbourhood = '';
+  @action
+  String setNeighbourhood() => _neighbourhood = cepResult?.bairro ?? '';
+
+  //cidade
+  @observable
+  String _city = '';
+  @action
+  String setCity() => _city = cepResult?.cidade ?? '';
+
+  //search cep
+  CepClient cepClient = CepClient();
 
   @observable
-  String street = '';
+  CepModel? cepModel;
 
   @observable
-  String number = '';
+  CepModel? cepResult;
 
-  @observable
-  String neighbourhood = '';
-
-  @observable
-  String city = '';
+  @action
+  Future<CepModel?> getCep(String cep) async {
+    try {
+      cepResult = await cepClient.getCepClient(cep);
+      return cepResult;
+    } catch (_) {
+      cepResult = null;
+    }
+  }
   //#############################################
 
   //TABS SCREEN

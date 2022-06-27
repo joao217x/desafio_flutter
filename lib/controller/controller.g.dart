@@ -72,82 +72,83 @@ mixin _$Controller on _ControllerBase, Store {
     });
   }
 
-  late final _$eventNameAtom =
-      Atom(name: '_ControllerBase.eventName', context: context);
+  late final _$_eventNameAtom =
+      Atom(name: '_ControllerBase._eventName', context: context);
 
   @override
-  String get eventName {
-    _$eventNameAtom.reportRead();
-    return super.eventName;
+  String get _eventName {
+    _$_eventNameAtom.reportRead();
+    return super._eventName;
   }
 
   @override
-  set eventName(String value) {
-    _$eventNameAtom.reportWrite(value, super.eventName, () {
-      super.eventName = value;
+  set _eventName(String value) {
+    _$_eventNameAtom.reportWrite(value, super._eventName, () {
+      super._eventName = value;
     });
   }
 
-  late final _$eventDescAtom =
-      Atom(name: '_ControllerBase.eventDesc', context: context);
+  late final _$_eventDescAtom =
+      Atom(name: '_ControllerBase._eventDesc', context: context);
 
   @override
-  String get eventDesc {
-    _$eventDescAtom.reportRead();
-    return super.eventDesc;
+  String get _eventDesc {
+    _$_eventDescAtom.reportRead();
+    return super._eventDesc;
   }
 
   @override
-  set eventDesc(String value) {
-    _$eventDescAtom.reportWrite(value, super.eventDesc, () {
-      super.eventDesc = value;
+  set _eventDesc(String value) {
+    _$_eventDescAtom.reportWrite(value, super._eventDesc, () {
+      super._eventDesc = value;
     });
   }
 
-  late final _$dateAtom = Atom(name: '_ControllerBase.date', context: context);
+  late final _$_dateAtom =
+      Atom(name: '_ControllerBase._date', context: context);
 
   @override
-  String get date {
-    _$dateAtom.reportRead();
-    return super.date;
+  String get _date {
+    _$_dateAtom.reportRead();
+    return super._date;
   }
 
   @override
-  set date(String value) {
-    _$dateAtom.reportWrite(value, super.date, () {
-      super.date = value;
+  set _date(String value) {
+    _$_dateAtom.reportWrite(value, super._date, () {
+      super._date = value;
     });
   }
 
-  late final _$timeStartAtom =
-      Atom(name: '_ControllerBase.timeStart', context: context);
+  late final _$_timeStartAtom =
+      Atom(name: '_ControllerBase._timeStart', context: context);
 
   @override
-  String get timeStart {
-    _$timeStartAtom.reportRead();
-    return super.timeStart;
+  String get _timeStart {
+    _$_timeStartAtom.reportRead();
+    return super._timeStart;
   }
 
   @override
-  set timeStart(String value) {
-    _$timeStartAtom.reportWrite(value, super.timeStart, () {
-      super.timeStart = value;
+  set _timeStart(String value) {
+    _$_timeStartAtom.reportWrite(value, super._timeStart, () {
+      super._timeStart = value;
     });
   }
 
-  late final _$timeEndAtom =
-      Atom(name: '_ControllerBase.timeEnd', context: context);
+  late final _$_timeEndAtom =
+      Atom(name: '_ControllerBase._timeEnd', context: context);
 
   @override
-  String get timeEnd {
-    _$timeEndAtom.reportRead();
-    return super.timeEnd;
+  String get _timeEnd {
+    _$_timeEndAtom.reportRead();
+    return super._timeEnd;
   }
 
   @override
-  set timeEnd(String value) {
-    _$timeEndAtom.reportWrite(value, super.timeEnd, () {
-      super.timeEnd = value;
+  set _timeEnd(String value) {
+    _$_timeEndAtom.reportWrite(value, super._timeEnd, () {
+      super._timeEnd = value;
     });
   }
 
@@ -166,66 +167,99 @@ mixin _$Controller on _ControllerBase, Store {
     });
   }
 
-  late final _$streetAtom =
-      Atom(name: '_ControllerBase.street', context: context);
+  late final _$_streetAtom =
+      Atom(name: '_ControllerBase._street', context: context);
 
   @override
-  String get street {
-    _$streetAtom.reportRead();
-    return super.street;
+  String get _street {
+    _$_streetAtom.reportRead();
+    return super._street;
   }
 
   @override
-  set street(String value) {
-    _$streetAtom.reportWrite(value, super.street, () {
-      super.street = value;
+  set _street(String value) {
+    _$_streetAtom.reportWrite(value, super._street, () {
+      super._street = value;
     });
   }
 
-  late final _$numberAtom =
-      Atom(name: '_ControllerBase.number', context: context);
+  late final _$_numberAtom =
+      Atom(name: '_ControllerBase._number', context: context);
 
   @override
-  String get number {
-    _$numberAtom.reportRead();
-    return super.number;
+  String get _number {
+    _$_numberAtom.reportRead();
+    return super._number;
   }
 
   @override
-  set number(String value) {
-    _$numberAtom.reportWrite(value, super.number, () {
-      super.number = value;
+  set _number(String value) {
+    _$_numberAtom.reportWrite(value, super._number, () {
+      super._number = value;
     });
   }
 
-  late final _$neighbourhoodAtom =
-      Atom(name: '_ControllerBase.neighbourhood', context: context);
+  late final _$_neighbourhoodAtom =
+      Atom(name: '_ControllerBase._neighbourhood', context: context);
 
   @override
-  String get neighbourhood {
-    _$neighbourhoodAtom.reportRead();
-    return super.neighbourhood;
+  String get _neighbourhood {
+    _$_neighbourhoodAtom.reportRead();
+    return super._neighbourhood;
   }
 
   @override
-  set neighbourhood(String value) {
-    _$neighbourhoodAtom.reportWrite(value, super.neighbourhood, () {
-      super.neighbourhood = value;
+  set _neighbourhood(String value) {
+    _$_neighbourhoodAtom.reportWrite(value, super._neighbourhood, () {
+      super._neighbourhood = value;
     });
   }
 
-  late final _$cityAtom = Atom(name: '_ControllerBase.city', context: context);
+  late final _$_cityAtom =
+      Atom(name: '_ControllerBase._city', context: context);
 
   @override
-  String get city {
-    _$cityAtom.reportRead();
-    return super.city;
+  String get _city {
+    _$_cityAtom.reportRead();
+    return super._city;
   }
 
   @override
-  set city(String value) {
-    _$cityAtom.reportWrite(value, super.city, () {
-      super.city = value;
+  set _city(String value) {
+    _$_cityAtom.reportWrite(value, super._city, () {
+      super._city = value;
+    });
+  }
+
+  late final _$cepModelAtom =
+      Atom(name: '_ControllerBase.cepModel', context: context);
+
+  @override
+  CepModel? get cepModel {
+    _$cepModelAtom.reportRead();
+    return super.cepModel;
+  }
+
+  @override
+  set cepModel(CepModel? value) {
+    _$cepModelAtom.reportWrite(value, super.cepModel, () {
+      super.cepModel = value;
+    });
+  }
+
+  late final _$cepResultAtom =
+      Atom(name: '_ControllerBase.cepResult', context: context);
+
+  @override
+  CepModel? get cepResult {
+    _$cepResultAtom.reportRead();
+    return super.cepResult;
+  }
+
+  @override
+  set cepResult(CepModel? value) {
+    _$cepResultAtom.reportWrite(value, super.cepResult, () {
+      super.cepResult = value;
     });
   }
 
@@ -287,6 +321,14 @@ mixin _$Controller on _ControllerBase, Store {
         .run(() => super.logIn(email: email, password: password));
   }
 
+  late final _$getCepAsyncAction =
+      AsyncAction('_ControllerBase.getCep', context: context);
+
+  @override
+  Future<CepModel?> getCep(String cep) {
+    return _$getCepAsyncAction.run(() => super.getCep(cep));
+  }
+
   late final _$getListaEventosControllerAsyncAction = AsyncAction(
       '_ControllerBase.getListaEventosController',
       context: context);
@@ -312,6 +354,116 @@ mixin _$Controller on _ControllerBase, Store {
   }
 
   @override
+  void setEventName(String value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setEventName');
+    try {
+      return super.setEventName(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setEventDesc(String value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setEventDesc');
+    try {
+      return super.setEventDesc(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setDate(String value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setDate');
+    try {
+      return super.setDate(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setTimeStart(String value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setTimeStart');
+    try {
+      return super.setTimeStart(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setTimeEnd(String value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setTimeEnd');
+    try {
+      return super.setTimeEnd(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String setCep(String value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setCep');
+    try {
+      return super.setCep(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String setStreet() {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setStreet');
+    try {
+      return super.setStreet();
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setNumber(String value) {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setNumber');
+    try {
+      return super.setNumber(value);
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String setNeighbourhood() {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setNeighbourhood');
+    try {
+      return super.setNeighbourhood();
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String setCity() {
+    final _$actionInfo = _$_ControllerBaseActionController.startAction(
+        name: '_ControllerBase.setCity');
+    try {
+      return super.setCity();
+    } finally {
+      _$_ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void togglePasswordVisibility() {
     final _$actionInfo = _$_ControllerBaseActionController.startAction(
         name: '_ControllerBase.togglePasswordVisibility');
@@ -329,16 +481,9 @@ user: ${user},
 password: ${password},
 pwRecover: ${pwRecover},
 resetResultState: ${resetResultState},
-eventName: ${eventName},
-eventDesc: ${eventDesc},
-date: ${date},
-timeStart: ${timeStart},
-timeEnd: ${timeEnd},
 cep: ${cep},
-street: ${street},
-number: ${number},
-neighbourhood: ${neighbourhood},
-city: ${city},
+cepModel: ${cepModel},
+cepResult: ${cepResult},
 eventModel: ${eventModel},
 eventModelList: ${eventModelList},
 isHidden: ${isHidden}

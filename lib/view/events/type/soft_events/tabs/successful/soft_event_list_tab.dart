@@ -29,113 +29,117 @@ class _SoftEventListTabState extends State<SoftEventListTab> {
               },
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 270,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 6),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                'SEX',
-                                style: TextStyle(color: AppColor.grey),
-                              ),
-                              Text('03/06'),
-                            ],
+                  Card(
+                    color: Colors.white10,
+                    elevation: 0,
+                    child: SizedBox(
+                      height: 270,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 6),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'SEX',
+                                  style: TextStyle(color: AppColor.grey),
+                                ),
+                                Text('03/06'),
+                              ],
+                            ),
                           ),
-                        ),
-                        const VerticalDivider(
-                          thickness: 2,
-                          width: 2,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SvgPicture.asset(
-                                'assets/event_header.svg',
-                                fit: BoxFit.fitHeight,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                controller.eventModel[index].name,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
+                          const VerticalDivider(
+                            thickness: 2,
+                            width: 2,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SvgPicture.asset(
+                                  'assets/event_header.svg',
+                                  fit: BoxFit.fitHeight,
                                 ),
-                              ),
-                              const SizedBox(height: 4),
-                              SizedBox(
-                                width: 300,
-                                child: Text(
-                                  controller.eventModel[index].description,
+                                const SizedBox(height: 4),
+                                Text(
+                                  controller.eventModel[index].name,
                                   style: const TextStyle(
-                                    fontSize: 14,
-                                    color: AppColor.grey,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                              ),
-                              const SizedBox(height: 4),
-                              Row(
-                                children: const [
-                                  Text(
-                                    '17:00',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColor.orange,
-                                    ),
-                                  ),
-                                  Text(
-                                    '  -  ',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  Text(
-                                    '20:00',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColor.orange,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 5),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  const Icon(
-                                    Icons.room,
-                                    color: AppColor.grey,
-                                  ),
-                                  Text(
-                                    controller.eventModel[index].address.rua,
+                                const SizedBox(height: 4),
+                                SizedBox(
+                                  width: 300,
+                                  child: Text(
+                                    controller.eventModel[index].description,
                                     style: const TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 14,
                                       color: AppColor.grey,
                                     ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(height: 5),
-                              const Text(
-                                'Ver no mapa',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: AppColor.purple,
+                                  ),
                                 ),
-                              ),
-                            ],
+                                const SizedBox(height: 4),
+                                Row(
+                                  children: const [
+                                    Text(
+                                      '17:00',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColor.orange,
+                                      ),
+                                    ),
+                                    Text(
+                                      '  -  ',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                    Text(
+                                      '20:00',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColor.orange,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 5),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    const Icon(
+                                      Icons.room,
+                                      color: AppColor.grey,
+                                    ),
+                                    Text(
+                                      controller.eventModel[index].address.rua,
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        color: AppColor.grey,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(height: 5),
+                                const Text(
+                                  'Ver no mapa',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: AppColor.purple,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 23)

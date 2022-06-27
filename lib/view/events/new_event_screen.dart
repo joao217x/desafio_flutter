@@ -3,6 +3,7 @@ import 'package:desafio_flutter/shared/theme/app_color.dart';
 import 'package:desafio_flutter/shared/util/mask.dart';
 import 'package:desafio_flutter/shared/widgets/appbar_widget.dart';
 import 'package:desafio_flutter/shared/widgets/elevated_button_widget.dart';
+import 'package:desafio_flutter/shared/widgets/snackbar_widget.dart';
 import 'package:desafio_flutter/shared/widgets/txt_form_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -47,7 +48,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
                     labelText: 'Nome do evento',
                     keyboardType: TextInputType.text,
                     onChanged: (String value) {
-                      controller.eventName = value;
+                      controller.setEventName(value);
                     },
                   ),
                 ),
@@ -57,7 +58,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
                     labelText: 'Descrição do evento',
                     keyboardType: TextInputType.text,
                     onChanged: (String value) {
-                      controller.eventDesc = value;
+                      controller.setEventDesc(value);
                     },
                   ),
                 ),
@@ -74,7 +75,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
                             hintText: '  /  /  ',
                             mask: Mask.date,
                             onChanged: (String value) {
-                              controller.date = value;
+                              controller.setDate(value);
                             },
                           ),
                         ),
@@ -88,7 +89,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
                             hintText: '00:00',
                             mask: Mask.time,
                             onChanged: (String value) {
-                              controller.timeStart = value;
+                              controller.setTimeStart(value);
                             },
                           ),
                         ),
@@ -102,7 +103,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
                             hintText: '00:00',
                             mask: Mask.time,
                             onChanged: (String value) {
-                              controller.timeEnd = value;
+                              controller.setTimeEnd(value);
                             },
                           ),
                         ),
@@ -125,11 +126,13 @@ class _NewEventScreenState extends State<NewEventScreen> {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 15),
                         child: TxtFormFieldWidget(
+                          // key: Key(controller.setCep(controller.cep)),
+                          initialValue: controller.setCep(controller.cep),
                           labelText: 'CEP',
                           keyboardType: TextInputType.number,
                           mask: Mask.cep,
                           onChanged: (String value) {
-                            controller.cep = value;
+                            controller.setCep(value);
                           },
                         ),
                       ),
@@ -140,10 +143,11 @@ class _NewEventScreenState extends State<NewEventScreen> {
                       ),
                       onPressed: controller.cep.length != 8
                           ? null
-                          : () {
-                              // ERRO
-                              // SnackbarCep.error.show(context);
-                              // SUCESSO
+                          : () async {
+                              if (await controller.getCep(controller.cep) ==
+                                  null) {
+                                SnackbarCep.error.show(context);
+                              }
                             },
                       child: const Icon(Icons.search),
                     )
@@ -155,10 +159,12 @@ class _NewEventScreenState extends State<NewEventScreen> {
                       child: Padding(
                         padding: const EdgeInsets.only(right: 22),
                         child: TxtFormFieldWidget(
+                          key: Key(controller.setStreet()),
+                          initialValue: controller.setStreet(),
                           labelText: 'Rua',
                           keyboardType: TextInputType.text,
                           onChanged: (String value) {
-                            controller.street = value;
+                            controller.setStreet();
                           },
                         ),
                       ),
@@ -169,7 +175,7 @@ class _NewEventScreenState extends State<NewEventScreen> {
                         labelText: 'Número',
                         keyboardType: TextInputType.number,
                         onChanged: (String value) {
-                          controller.number = value;
+                          controller.setNumber(value);
                         },
                       ),
                     ),
@@ -178,20 +184,24 @@ class _NewEventScreenState extends State<NewEventScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: TxtFormFieldWidget(
+                    key: Key(controller.setNeighbourhood()),
+                    initialValue: controller.setNeighbourhood(),
                     labelText: 'Bairro',
                     keyboardType: TextInputType.text,
                     onChanged: (String value) {
-                      controller.neighbourhood = value;
+                      controller.setNeighbourhood();
                     },
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 25),
                   child: TxtFormFieldWidget(
+                    key: Key(controller.setCity()),
+                    initialValue: controller.setCity(),
                     labelText: 'Cidade',
                     keyboardType: TextInputType.text,
                     onChanged: (String value) {
-                      controller.city = value;
+                      controller.setCity();
                     },
                   ),
                 ),

@@ -13,11 +13,15 @@ class FirebaseClient {
         password: password,
       );
     } on FirebaseAuthException catch (e) {
-      throw e;
+      throw e.toString();
     }
   }
 
-  Future<void> pwResetFirebase ({required email}) async {
-    await instance.sendPasswordResetEmail(email: email);
+  Future<void> pwResetFirebase({required email}) async {
+    try {
+      await instance.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      throw e.toString();
+    }
   }
 }
